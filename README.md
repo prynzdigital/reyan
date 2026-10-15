@@ -1,24 +1,28 @@
 # Richard Engmann Ministries — Website
 
-A fast, mobile-friendly website for Richard Engmann's preaching ministry: live YouTube services, sermon library, podcast, missions, events, prayer requests, giving and contact.
+A clean, black-and-white website (with gold accents) for Richard Engmann's preaching ministry: biography, resources (books, School of Ministry, meetings, podcast), new book release, partnership and giving, live YouTube services, popular videos, the Faith Café Podcast, travel schedule, invitations and contact.
 
 ## Files
 | File | What it is |
 |---|---|
-| `index.html` | Page layout and fixed text (hero, about, mission descriptions) |
-| `site-data.js` | **Edit this file** for everyday updates: service times, sermons, podcast episodes, events, testimonies, project goal, links |
-| `styles.css` | Design (colors are at the top under `:root`) |
-| `script.js` | Behaviour (live countdown, players, sliders, forms) |
+| `site-data.js` | **Edit this file** for everyday updates: tagline, biography, resource tiles, new book, partner project, service times, videos, podcast episodes, events, links, contact details |
+| `index.html` | Page layout |
+| `styles.css` | Design (colors and fonts are at the top under `:root`) |
+| `script.js` | Fills the page from `site-data.js`; live status, players, forms |
 
 ## Setup checklist
-1. **YouTube live** — in `site-data.js`, set `youtube.channelId` (starts with `UC…`) and `youtube.handle`. The live player will then show the current stream, or the latest one when offline.
-2. **Sermons** — add each video's ID (the part after `v=` in the link) to `youtubeId` to show real thumbnails.
-3. **Podcast** — paste Spotify / Apple Podcasts links into `links`. Add an `.mp3` URL to an episode's `audio` to play it right on the site.
-4. **Giving** — set `links.givingLink` to your PayPal / Stripe / giving page, and fill in bank & mobile money details in `index.html` (search for "add your bank").
-5. **Forms** — create a free form at [formspree.io](https://formspree.io) and paste its URL into `formEndpoint` so prayer requests and messages reach your inbox. Until then, forms open the visitor's email app.
-6. **Photo** — put a photo at `images/richard-engmann.jpg` and in `index.html` replace the `photo-placeholder` block with `<img src="images/richard-engmann.jpg" alt="Richard Engmann preaching" />`.
-7. **Contact details & socials** — update `email`, `phone`, `address` and `socials` in `site-data.js`.
-8. **Numbers** — the stats (nations reached, salvations, etc.) are in `index.html` as `data-count="…"`. Replace them with real figures.
+Anything marked `PLACEHOLDER` in `site-data.js` is an example to replace.
+1. **Photos** — the design is built around strong photos. Put them in the `images` folder and add the file names under `photos` in `site-data.js`:
+   - `hero` — wide photo of Richard preaching (landscape, at least 1920px wide)
+   - `about` — portrait for the biography
+   - `partner` — crowd or outreach photo
+   - Each resource tile can also take an `image`, and the new book a `cover`.
+2. **YouTube live** — set `youtube.channelId` (starts with `UC…`) and `youtube.handle`.
+3. **Videos** — add each video's ID (the part after `v=` in the link) to `youtubeId` to show real thumbnails.
+4. **Podcast** — paste Spotify / Apple Podcasts links into `links`. Add an `.mp3` URL to an episode's `audio` to play it on the site.
+5. **Giving** — set `links.givingLink` to your giving page, and fill in bank & mobile money details in `index.html` (search for "add your bank").
+6. **Forms** — create a free form at [formspree.io](https://formspree.io) and paste its URL into `formEndpoint` so messages and prayer requests reach your inbox. Until then, forms open the visitor's email app.
+7. **Contact details & socials** — update `email`, `phone`, `address` and `socials`.
 
 ## Mobile app
 On phones (screens up to 768px wide) the site switches to an app layout: a bottom tab bar (Home, Live, Sermons, Podcast, More), a "More" sheet, quick-action buttons, swipeable sermon and mission cards, and a podcast mini player docked above the tabs.

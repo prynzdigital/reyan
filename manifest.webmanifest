@@ -1,7 +1,7 @@
 {
   "name": "Richard Engmann Ministries",
   "short_name": "RE Ministries",
-  "description": "Watch live services, sermons and the Living Word podcast. Send prayer requests and partner with the mission.",
+  "description": "Watch live services, sermons and the Faith Café Podcast. Send prayer requests and partner with the mission.",
   "id": "./",
   "start_url": "./?source=app",
   "scope": "./",

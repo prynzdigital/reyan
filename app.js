@@ -52,7 +52,7 @@
   if (socials) $("#sheet-socials").innerHTML = socials.innerHTML;
 
   /* ---------- Tab bar: highlight the current section ---------- */
-  const TAB_FOR = { home: "home", live: "live", sermons: "sermons", podcast: "podcast" };
+  const TAB_FOR = { home: "home", live: "live", podcast: "podcast", events: "events" };
   const tabs = $$(".tab");
   const setTab = (name) => tabs.forEach((t) => {
     const on = t.dataset.tab === name;

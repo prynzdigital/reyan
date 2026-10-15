@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Richard Engmann Ministries — Preaching Christ, Reaching the Nations</title>
-  <meta name="description" content="Richard Engmann Ministries: sermons, live worship services on YouTube, the Living Word podcast, missions outreach, prayer and partnership." />
+  <title>Richard Engmann Ministries — The Word. The Spirit. The Nations.</title>
+  <meta name="description" content="Richard Engmann Ministries: live services, sermons, the Faith Café Podcast, books, training, conferences and Gospel outreach to the nations." />
   <meta property="og:title" content="Richard Engmann Ministries" />
-  <meta property="og:description" content="Preaching Christ, reaching the nations. Watch live, listen to the podcast, and join the mission." />
-  <meta name="theme-color" content="#0f1729" />
+  <meta property="og:description" content="The Word. The Spirit. The Nations. Watch live, listen to the podcast and partner with the mission." />
+  <meta property="og:image" content="images/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="RE Ministries" />
-  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png" />
-  <meta property="og:image" content="images/og-image.png" />
-  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="mobile.css" />
 </head>
@@ -28,28 +28,23 @@
 
   <!-- ============ HEADER ============ -->
   <header class="site-header" id="top">
-    <div class="container header-inner">
-      <a href="#top" class="brand" aria-label="Richard Engmann Ministries home">
+    <div class="header-inner">
+      <a href="#home" class="brand" aria-label="Richard Engmann Ministries home">
         <img class="brand-logo" src="images/logo-mark-white.png" alt="" width="20" height="46" />
-        <span class="brand-text">
-          <strong data-bind="ministryName">Richard Engmann Ministries</strong>
-          <small data-bind="tagline">Preaching Christ · Reaching Nations</small>
-        </span>
+        <span class="brand-text"><span data-bind="preacherName">Richard Engmann</span><small>Ministries</small></span>
       </a>
 
       <nav class="main-nav" id="main-nav" aria-label="Main">
-        <a href="#live">Watch Live</a>
-        <a href="#sermons">Sermons</a>
-        <a href="#podcast">Podcast</a>
-        <a href="#mission">Mission</a>
-        <a href="#events">Events</a>
         <a href="#about">About</a>
-        <a href="#prayer">Prayer</a>
-        <a href="#give" class="btn btn-gold btn-sm nav-give">Give</a>
+        <a href="#resources">Resources</a>
+        <a href="#live">Watch Live</a>
+        <a href="#podcast">Podcast</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+        <a href="#partner" class="btn btn-gold btn-sm nav-cta">Partner</a>
       </nav>
 
-      <a href="#give" class="btn btn-gold btn-sm header-give">Give</a>
-
+      <a href="#partner" class="btn btn-gold btn-sm header-give">Give</a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
         <span></span><span></span><span></span>
       </button>
@@ -60,139 +55,171 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero" id="home">
-      <div class="hero-glow" aria-hidden="true"></div>
-      <div class="hero-rays" aria-hidden="true"></div>
-      <div class="container hero-inner">
-        <div class="hero-copy reveal">
-          <p class="eyebrow"><span class="live-dot" id="hero-live-dot"></span> <span id="hero-status">Next live service loading…</span></p>
-          <h1>Carrying the <em>Light</em> of the Gospel to every heart and every nation.</h1>
-          <p class="lead">Welcome to the online home of Richard Engmann — preacher, teacher and missionary. Join us for live worship, Spirit-filled teaching, the <em>Living Word</em> podcast, and the work of reaching the unreached.</p>
-          <div class="hero-actions">
-            <a href="#live" class="btn btn-gold"><svg class="ico" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Live</a>
-            <a href="#podcast" class="btn btn-ghost"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3a4 4 0 0 1 4 4v5a4 4 0 0 1-8 0V7a4 4 0 0 1 4-4zm7 9a7 7 0 0 1-6 6.93V22h-2v-3.07A7 7 0 0 1 5 12h2a5 5 0 0 0 10 0z"/></svg> Listen to the Podcast</a>
-          </div>
-          <nav class="quick-actions" aria-label="Quick actions">
-            <a href="#live" class="qa"><span class="qa-ico qa-red"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>Watch</a>
-            <a href="#podcast" class="qa"><span class="qa-ico qa-purple"><svg viewBox="0 0 24 24"><path d="M12 3a4 4 0 0 1 4 4v5a4 4 0 0 1-8 0V7a4 4 0 0 1 4-4zm7 9a7 7 0 0 1-6 6.93V22h-2v-3.07A7 7 0 0 1 5 12h2a5 5 0 0 0 10 0z"/></svg></span>Listen</a>
-            <a href="#prayer" class="qa"><span class="qa-ico qa-blue"><svg viewBox="0 0 24 24"><path d="M12 21.4 10.6 20C5.4 15.4 2 12.3 2 8.5 2 5.4 4.4 3 7.5 3c1.7 0 3.4.8 4.5 2.1A6 6 0 0 1 16.5 3C19.6 3 22 5.4 22 8.5c0 3.8-3.4 6.9-8.6 11.5z"/></svg></span>Prayer</a>
-            <a href="#give" class="qa"><span class="qa-ico qa-gold"><svg viewBox="0 0 24 24"><path d="M20 7h-2.2A3 3 0 0 0 12 3.8 3 3 0 0 0 6.2 7H4a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8h1a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zM15 5a1 1 0 1 1 0 2h-2a2 2 0 0 1 2-2zM9 5a2 2 0 0 1 2 2H9a1 1 0 1 1 0-2zm2 15H7v-8h4zm0-10H5V9h6zm6 10h-4v-8h4zm2-10h-6V9h6z"/></svg></span>Give</a>
-          </nav>
-          <dl class="hero-stats">
-            <div><dt data-count="12">0</dt><dd>Nations reached</dd></div>
-            <div><dt data-count="450" data-suffix="+">0</dt><dd>Sermons preached</dd></div>
-            <div><dt data-count="25" data-suffix="K">0</dt><dd>Online family</dd></div>
-          </dl>
+      <div class="hero-media" id="hero-media" aria-hidden="true">
+        <div class="stage-lights"></div>
+      </div>
+      <div class="hero-content">
+        <p class="live-pill" id="live-pill"><span class="live-dot"></span> <span id="hero-status">Next live service loading…</span></p>
+        <h1 data-bind="preacherName">Richard Engmann</h1>
+        <p class="hero-tagline" data-bind="tagline">The Word. The Spirit. The Nations.</p>
+        <div class="hero-actions">
+          <a href="#live" class="btn btn-gold">Watch Live</a>
+          <a href="#contact" class="btn btn-outline-light" data-subject="Speaking invitation">Invite Richard</a>
         </div>
+        <nav class="quick-actions" aria-label="Quick actions">
+          <a href="#live" class="qa"><span class="qa-ico"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>Watch</a>
+          <a href="#podcast" class="qa"><span class="qa-ico"><svg viewBox="0 0 24 24"><path d="M12 3a4 4 0 0 1 4 4v5a4 4 0 0 1-8 0V7a4 4 0 0 1 4-4zm7 9a7 7 0 0 1-6 6.93V22h-2v-3.07A7 7 0 0 1 5 12h2a5 5 0 0 0 10 0z"/></svg></span>Listen</a>
+          <a href="#contact" class="qa" data-subject="Prayer request"><span class="qa-ico"><svg viewBox="0 0 24 24"><path d="M12 21.4 10.6 20C5.4 15.4 2 12.3 2 8.5 2 5.4 4.4 3 7.5 3c1.7 0 3.4.8 4.5 2.1A6 6 0 0 1 16.5 3C19.6 3 22 5.4 22 8.5c0 3.8-3.4 6.9-8.6 11.5z"/></svg></span>Prayer</a>
+          <a href="#partner" class="qa"><span class="qa-ico gold"><svg viewBox="0 0 24 24"><path d="M20 7h-2.2A3 3 0 0 0 12 3.8 3 3 0 0 0 6.2 7H4a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8h1a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zM15 5a1 1 0 1 1 0 2h-2a2 2 0 0 1 2-2zM9 5a2 2 0 0 1 2 2H9a1 1 0 1 1 0-2zm2 15H7v-8h4zm0-10H5V9h6zm6 10h-4v-8h4zm2-10h-6V9h6z"/></svg></span>Give</a>
+        </nav>
+      </div>
+      <a href="#about" class="scroll-cue" aria-label="Scroll to biography"><span></span></a>
+    </section>
 
-        <aside class="hero-verse reveal" aria-label="Verse of the day">
-          <p class="verse-label">Verse of the Day</p>
-          <blockquote id="verse-text">“Go ye therefore, and teach all nations…”</blockquote>
-          <cite id="verse-ref">Matthew 28:19</cite>
-          <div class="countdown" id="countdown" aria-live="polite">
-            <p class="countdown-label">Next Service In</p>
-            <div class="countdown-grid">
-              <div><span data-cd="d">00</span><small>Days</small></div>
-              <div><span data-cd="h">00</span><small>Hours</small></div>
-              <div><span data-cd="m">00</span><small>Mins</small></div>
-              <div><span data-cd="s">00</span><small>Secs</small></div>
-            </div>
-          </div>
-        </aside>
+    <!-- ============ BIOGRAPHY ============ -->
+    <section class="section bio" id="about">
+      <div class="container bio-grid">
+        <div class="bio-photo reveal" id="bio-photo">
+          <img src="images/logo-mark-white.png" alt="" class="bio-placeholder" />
+        </div>
+        <div class="bio-copy reveal">
+          <p class="kicker">Biography</p>
+          <h2>About <span data-bind="preacherName">Richard Engmann</span></h2>
+          <div id="bio-text"></div>
+          <a href="#contact" class="btn btn-dark" data-subject="Speaking invitation">Invite Richard to minister</a>
+        </div>
       </div>
     </section>
 
-    <!-- ============ SERVICE TIMES STRIP ============ -->
-    <section class="times-strip" aria-label="Service times">
-      <div class="container times-grid" id="service-times"></div>
+    <!-- ============ RESOURCES ============ -->
+    <section class="section section-black" id="resources">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">Grow in the Word</p>
+          <h2>Resources for your journey</h2>
+          <p>Whether you are new to faith or ready to go deeper, here is where to start.</p>
+        </div>
+        <div class="tiles" id="tiles"></div>
+      </div>
+    </section>
+
+    <!-- ============ NEW RELEASE ============ -->
+    <section class="section release" id="new-release">
+      <div class="container release-grid">
+        <div class="book reveal" id="book" aria-hidden="true">
+          <div class="book-cover">
+            <img src="images/logo-mark-white.png" alt="" class="book-mark" />
+            <span class="book-title" id="book-title">Fire on the Altar</span>
+            <span class="book-author" data-bind="preacherName">Richard Engmann</span>
+          </div>
+        </div>
+        <div class="release-copy reveal">
+          <p class="kicker" id="release-kicker">New Release</p>
+          <h2 id="release-title">Fire on the Altar</h2>
+          <p class="release-sub" id="release-sub"></p>
+          <p id="release-text"></p>
+          <a class="btn btn-dark" id="release-cta" href="#contact">Get a copy</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PARTNER ============ -->
+    <section class="section partner" id="partner">
+      <div class="partner-bg" id="partner-bg" aria-hidden="true"></div>
+      <div class="container partner-grid">
+        <div class="partner-copy reveal">
+          <p class="kicker">Join the team</p>
+          <h2 id="partner-title">Partner with the mission</h2>
+          <p id="partner-text"></p>
+          <div class="project">
+            <p class="project-label">Current project — <strong id="project-title"></strong></p>
+            <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="project-progress"><div class="progress-bar" id="project-bar"></div></div>
+            <p class="progress-meta"><strong id="project-raised"></strong> raised of <span id="project-goal"></span></p>
+          </div>
+        </div>
+
+        <div class="give-card reveal" id="give">
+          <div class="give-toggle" role="radiogroup" aria-label="Gift frequency">
+            <button class="active" data-freq="monthly" role="radio" aria-checked="true">Monthly partner</button>
+            <button data-freq="once" role="radio" aria-checked="false">One-time gift</button>
+          </div>
+          <div class="amounts" id="amounts">
+            <button data-amt="25">$25</button>
+            <button data-amt="50" class="active">$50</button>
+            <button data-amt="100">$100</button>
+            <button data-amt="250">$250</button>
+            <button data-amt="500">$500</button>
+            <label class="amt-custom"><span>$</span><input type="number" min="1" placeholder="Other" id="amt-custom" aria-label="Custom amount" /></label>
+          </div>
+          <p class="give-impact" id="give-impact"></p>
+          <a class="btn btn-gold btn-block" id="give-btn" data-href="givingLink" target="_blank" rel="noopener">Join now</a>
+          <details class="other-ways">
+            <summary>Bank transfer &amp; mobile money</summary>
+            <p>Account name: <span data-bind="ministryName">Richard Engmann Ministries</span><br />Bank: — add your bank —<br />Account no: — add your number —<br />Mobile money: — add your number —</p>
+          </details>
+        </div>
+      </div>
     </section>
 
     <!-- ============ LIVE ============ -->
-    <section class="section section-dark" id="live">
+    <section class="section section-black" id="live">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow gold">Live on YouTube</p>
-          <h2>Worship with us, wherever you are</h2>
-          <p>Every service is streamed live. Click play to join the stream — and subscribe so you never miss a word.</p>
+          <p class="kicker">Live on YouTube</p>
+          <h2>Worship with us</h2>
+          <p id="service-times"></p>
         </div>
-
-        <div class="live-wrap reveal">
-          <div class="live-player" id="live-player">
-            <button class="live-poster" id="live-poster" aria-label="Load the live stream">
-              <span class="live-badge"><span class="live-dot"></span> <span id="live-badge-text">LIVE STREAM</span></span>
-              <span class="play-ring"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-              <span class="poster-title">Click to join the live service</span>
-              <span class="poster-sub" id="poster-sub">If we're not live right now, you'll see the latest stream.</span>
-            </button>
-          </div>
-
-          <div class="live-side">
-            <div class="card-dark">
-              <h3>This Week's Message</h3>
-              <p class="muted" id="weekly-title">“Fire on the Altar” — Leviticus 6:13</p>
-              <p class="small" id="weekly-desc">A call to keep our devotion burning in a cold world. Bring your Bible and a hungry heart.</p>
-            </div>
-            <div class="card-dark">
-              <h3>Join the conversation</h3>
-              <p class="small">Drop your prayer requests in the live chat — our prayer team is standing by during every stream.</p>
-              <div class="btn-row">
-                <a class="btn btn-red btn-sm" data-href="youtubeSubscribe" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9L15.5 12z"/></svg> Subscribe</a>
-                <a class="btn btn-ghost btn-sm" data-href="youtubeChannel" target="_blank" rel="noopener">Visit Channel</a>
-              </div>
-            </div>
-          </div>
+        <div class="live-player reveal" id="live-player">
+          <button class="live-poster" id="live-poster" aria-label="Load the live stream">
+            <span class="live-badge"><span class="live-dot"></span> <span id="live-badge-text">LIVE STREAM</span></span>
+            <span class="play-ring"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="poster-title">Join the live service</span>
+            <span class="poster-sub" id="poster-sub">If we're not live right now, you'll see the latest stream.</span>
+          </button>
+        </div>
+        <div class="center reveal">
+          <a class="btn btn-outline-light" data-href="youtubeSubscribe" target="_blank" rel="noopener">Subscribe on YouTube</a>
         </div>
       </div>
     </section>
 
-    <!-- ============ SERMONS ============ -->
-    <section class="section" id="sermons">
+    <!-- ============ POPULAR VIDEOS ============ -->
+    <section class="section" id="videos">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">Sermon Library</p>
-          <h2>Recent messages</h2>
-          <p>Teaching that is rooted in Scripture, empowered by the Spirit and practical for everyday life.</p>
+          <p class="kicker">Gallery</p>
+          <h2>Popular videos</h2>
         </div>
-
-        <div class="filter-bar reveal" role="tablist" aria-label="Filter sermons" id="sermon-filters"></div>
-        <div class="sermon-grid" id="sermon-grid"></div>
-
+        <div class="videos" id="video-grid"></div>
         <div class="center reveal">
-          <a class="btn btn-outline" data-href="youtubeChannel" target="_blank" rel="noopener">See all sermons on YouTube →</a>
+          <a class="btn btn-dark" data-href="youtubeChannel" target="_blank" rel="noopener">See all on YouTube</a>
         </div>
       </div>
     </section>
 
     <!-- ============ PODCAST ============ -->
-    <section class="section section-cream" id="podcast">
-      <div class="container podcast-layout">
-        <div class="podcast-intro reveal">
+    <section class="section section-black podcast" id="podcast">
+      <div class="container podcast-grid">
+        <div class="podcast-copy reveal">
           <div class="podcast-cover" aria-hidden="true">
-            <div class="cover-art">
-              <span class="cover-kicker">The</span>
-              <span class="cover-title">Living<br/>Word</span>
-              <span class="cover-sub">with Richard Engmann</span>
-              <svg class="cover-wave" viewBox="0 0 200 40" preserveAspectRatio="none"><path d="M0 20 Q 10 2 20 20 T 40 20 T 60 20 T 80 20 T 100 20 T 120 20 T 140 20 T 160 20 T 180 20 T 200 20"/></svg>
-            </div>
+            <img src="images/logo-mark-white.png" alt="" />
+            <span>Faith Café</span>
           </div>
-          <p class="eyebrow">The Podcast</p>
-          <h2>The Living Word</h2>
-          <p>Weekly conversations on faith, prayer, missions and walking with God in the real world. Short enough for your commute, deep enough to change your week.</p>
+          <p class="kicker">The Podcast</p>
+          <h2>Faith Café Podcast</h2>
+          <p>Real stories, honest conversations and fresh insight from the Word to help you grow. Join <span data-bind="preacherName">Richard Engmann</span> for each new episode.</p>
           <div class="platforms">
-            <a data-href="spotify" target="_blank" rel="noopener" class="platform"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#1DB954"/><path d="M6.5 9.5c3.8-1.1 8-.8 11 1M7 12.6c3.2-.9 6.6-.6 9.3.9M7.6 15.5c2.5-.7 5.1-.5 7.3.7" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg> Spotify</a>
-            <a data-href="applePodcasts" target="_blank" rel="noopener" class="platform"><svg viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#9933CC"/><circle cx="12" cy="10" r="2.6" fill="#fff"/><path d="M10.6 14h2.8l-.5 5.5h-1.8z" fill="#fff"/><path d="M7.5 15.5a6 6 0 1 1 9 0" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg> Apple Podcasts</a>
-            <a data-href="youtubeChannel" target="_blank" rel="noopener" class="platform"><svg viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#FF0000"/><path d="M10 8.5v7l6-3.5z" fill="#fff"/></svg> YouTube</a>
+            <a data-href="spotify" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm">Spotify</a>
+            <a data-href="applePodcasts" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm">Apple Podcasts</a>
+            <a data-href="youtubeChannel" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm">YouTube</a>
           </div>
         </div>
-
-        <div class="podcast-episodes reveal">
+        <div class="reveal">
           <div class="player" id="player" hidden>
-            <div class="player-info">
-              <small>Now playing</small>
-              <strong id="player-title">—</strong>
-            </div>
+            <div class="player-info"><small>Now playing</small><strong id="player-title">—</strong></div>
             <div class="player-controls">
               <button class="icon-btn" id="player-back" aria-label="Back 15 seconds"><svg viewBox="0 0 24 24"><path d="M12 5V2L7 6l5 4V7a6 6 0 1 1-6 6H4a8 8 0 1 0 8-8z"/></svg></button>
-              <button class="icon-btn big" id="player-toggle" aria-label="Play"><svg viewBox="0 0 24 24" id="player-icon"><path d="M8 5v14l11-7z"/></svg></button>
+              <button class="icon-btn big" id="player-toggle" aria-label="Play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
               <button class="icon-btn" id="player-fwd" aria-label="Forward 30 seconds"><svg viewBox="0 0 24 24"><path d="M12 5V2l5 4-5 4V7a6 6 0 1 0 6 6h2a8 8 0 1 1-8-8z"/></svg></button>
             </div>
             <div class="player-progress">
@@ -207,225 +234,23 @@
       </div>
     </section>
 
-    <!-- ============ MISSION ============ -->
-    <section class="section" id="mission">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">The Mission</p>
-          <h2>Faith that goes, gives and serves</h2>
-          <p>We believe the Gospel is good news for the whole person. Our mission work brings the Word, compassion and practical help to communities that need it most.</p>
-        </div>
-
-        <div class="mission-grid">
-          <article class="mission-card reveal">
-            <div class="mission-ico"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-3a15.6 15.6 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8zM12 4a14 14 0 0 1 1.9 4h-3.8A14 14 0 0 1 12 4zM4.3 14a8 8 0 0 1 0-4h3.4a16 16 0 0 0 0 4zm.8 2h3a15.6 15.6 0 0 0 1.4 3.6A8 8 0 0 1 5.1 16zm3-8h-3a8 8 0 0 1 4.4-3.6A15.6 15.6 0 0 0 8.1 8zM12 20a14 14 0 0 1-1.9-4h3.8A14 14 0 0 1 12 20zm2.3-6H9.7a14.7 14.7 0 0 1 0-4h4.6a14.7 14.7 0 0 1 0 4zm.2 5.6a15.6 15.6 0 0 0 1.4-3.6h3a8 8 0 0 1-4.4 3.6zm1.8-5.6a16 16 0 0 0 0-4h3.4a8 8 0 0 1 0 4z"/></svg></div>
-            <h3>Gospel Crusades</h3>
-            <p>Open-air crusades and revival meetings in towns and villages, preaching salvation, healing and hope.</p>
-          </article>
-          <article class="mission-card reveal">
-            <div class="mission-ico"><svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9zM5 13.2v4L12 21l7-3.8v-4L12 17z"/></svg></div>
-            <h3>Leadership Training</h3>
-            <p>Equipping pastors and young leaders with sound doctrine, practical ministry skills and resources.</p>
-          </article>
-          <article class="mission-card reveal">
-            <div class="mission-ico"><svg viewBox="0 0 24 24"><path d="M12 21.4 10.6 20C5.4 15.4 2 12.3 2 8.5 2 5.4 4.4 3 7.5 3c1.7 0 3.4.8 4.5 2.1A6 6 0 0 1 16.5 3C19.6 3 22 5.4 22 8.5c0 3.8-3.4 6.9-8.6 11.5z"/></svg></div>
-            <h3>Compassion Outreach</h3>
-            <p>Food, clean water, clothing and medical outreach for widows, orphans and families in need.</p>
-          </article>
-          <article class="mission-card reveal">
-            <div class="mission-ico"><svg viewBox="0 0 24 24"><path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM9 4h2v5l-1-.8L9 9zm9 16H6V4h1v9l3-2.3 3 2.3V4h5z"/></svg></div>
-            <h3>Bibles for the Nations</h3>
-            <p>Placing Bibles and discipleship materials in the hands of new believers in their own language.</p>
-          </article>
-        </div>
-
-        <div class="impact reveal">
-          <div class="impact-copy">
-            <p class="eyebrow gold">Current Project</p>
-            <h3 id="project-title">Village Outreach &amp; Bible Distribution</h3>
-            <p id="project-desc">Help us reach 20 villages this year with the Gospel, 5,000 Bibles and medical camps.</p>
-            <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="project-progress">
-              <div class="progress-bar" id="project-bar"></div>
-            </div>
-            <p class="progress-meta"><strong id="project-raised">$0</strong> raised of <span id="project-goal">$0</span></p>
-            <a href="#give" class="btn btn-gold">Support this project</a>
-          </div>
-          <ul class="impact-list">
-            <li><strong data-count="3200" data-suffix="+">0</strong><span>Salvations recorded</span></li>
-            <li><strong data-count="40" data-suffix="+">0</strong><span>Outreaches held</span></li>
-            <li><strong data-count="180" data-suffix="">0</strong><span>Leaders trained</span></li>
-            <li><strong data-count="6000" data-suffix="+">0</strong><span>Bibles distributed</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ EVENTS ============ -->
-    <section class="section section-cream" id="events">
+    <section class="section" id="events">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">Upcoming</p>
-          <h2>Events &amp; gatherings</h2>
-          <p>Come in person or join online. There's a seat for you.</p>
+          <p class="kicker">REM Schedule</p>
+          <h2>Upcoming events</h2>
         </div>
         <div class="event-list" id="event-list"></div>
       </div>
     </section>
 
-    <!-- ============ ABOUT ============ -->
-    <section class="section" id="about">
-      <div class="container about-grid">
-        <div class="about-photo reveal">
-          <div class="photo-frame">
-            <!-- Replace with: <img src="images/richard-engmann.jpg" alt="Richard Engmann preaching" /> -->
-            <div class="photo-placeholder" aria-label="Photo of Richard Engmann">
-              <img src="images/logo-mark-white.png" alt="" class="placeholder-logo" />
-            </div>
-          </div>
-          <div class="photo-tag">
-            <strong>Richard Engmann</strong>
-            <small>Preacher · Teacher · Missionary</small>
-          </div>
-        </div>
-
-        <div class="about-copy reveal">
-          <p class="eyebrow">About Richard Engmann</p>
-          <h2>A voice for the Gospel, a heart for the nations</h2>
-          <p>Richard Engmann answered the call to preach as a young man and has given his life to proclaiming Jesus Christ with clarity, passion and compassion. His ministry carries a simple burden: that every person would hear the Gospel and come to know the love of the Father.</p>
-          <p>Through local churches, open-air crusades, conferences and online platforms, Richard teaches the Word of God in a way that is deep yet simple — calling believers to prayer, holiness and bold witness.</p>
-
-          <div class="beliefs">
-            <div><h4>Our Vision</h4><p>To see lives transformed, leaders raised and nations reached through the power of the Gospel.</p></div>
-            <div><h4>Our Values</h4><p>The Word. Prayer. Integrity. Compassion. Excellence. Souls.</p></div>
-          </div>
-
-          <blockquote class="about-quote">
-            “I have not come to make a name — I have come to lift up the Name above every name.”
-            <cite>— Richard Engmann</cite>
-          </blockquote>
-
-          <div class="btn-row">
-            <a href="#contact" class="btn btn-dark">Invite Richard to speak</a>
-            <a href="#prayer" class="btn btn-outline">Request prayer</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ TESTIMONIES ============ -->
-    <section class="section section-dark" id="testimonies">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow gold">Testimonies</p>
-          <h2>What God is doing</h2>
-        </div>
-        <div class="testimony-slider reveal">
-          <div class="testimony-track" id="testimony-track"></div>
-          <div class="slider-dots" id="slider-dots" role="tablist" aria-label="Choose testimony"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ PRAYER ============ -->
-    <section class="section" id="prayer">
-      <div class="container prayer-grid">
-        <div class="prayer-copy reveal">
-          <p class="eyebrow">Prayer</p>
-          <h2>You don't have to carry it alone</h2>
-          <p>Whatever you are facing — sickness, family trouble, finances, fear or the need for salvation — our prayer team will stand with you in faith. Every request is kept confidential.</p>
-          <blockquote class="scripture">
-            “Is any sick among you? let him call for the elders of the church; and let them pray over him…”
-            <cite>James 5:14</cite>
-          </blockquote>
-          <ul class="checklist">
-            <li>Prayed over by our intercessors within 24 hours</li>
-            <li>Kept private and confidential</li>
-            <li>Share a testimony when God answers</li>
-          </ul>
-        </div>
-
-        <form class="form-card reveal" id="prayer-form" novalidate>
-          <h3>Send a prayer request</h3>
-          <div class="field-row">
-            <label>First name<input name="name" required autocomplete="given-name" /></label>
-            <label>Email<input name="email" type="email" required autocomplete="email" /></label>
-          </div>
-          <label>Topic
-            <select name="topic">
-              <option>Salvation</option>
-              <option>Healing</option>
-              <option>Family</option>
-              <option>Finances &amp; Work</option>
-              <option>Guidance</option>
-              <option>Other</option>
-            </select>
-          </label>
-          <label>Your request<textarea name="message" rows="5" required placeholder="Share as much or as little as you like…"></textarea></label>
-          <label class="check"><input type="checkbox" name="private" checked /> Keep this request private to the prayer team</label>
-          <button class="btn btn-gold btn-block" type="submit">Send Prayer Request</button>
-          <p class="form-status" role="status"></p>
-        </form>
-      </div>
-    </section>
-
-    <!-- ============ GIVE ============ -->
-    <section class="section section-give" id="give">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow gold">Partner With Us</p>
-          <h2>Your giving sends the Gospel further</h2>
-          <p>“God loveth a cheerful giver.” — 2 Corinthians 9:7. Every gift fuels crusades, feeds families and puts Bibles in hands.</p>
-        </div>
-
-        <div class="give-grid">
-          <div class="give-card reveal">
-            <div class="give-toggle" role="radiogroup" aria-label="Gift frequency">
-              <button class="active" data-freq="once" role="radio" aria-checked="true">One-time</button>
-              <button data-freq="monthly" role="radio" aria-checked="false">Monthly partner</button>
-            </div>
-            <div class="amounts" id="amounts">
-              <button data-amt="25">$25</button>
-              <button data-amt="50" class="active">$50</button>
-              <button data-amt="100">$100</button>
-              <button data-amt="250">$250</button>
-              <button data-amt="500">$500</button>
-              <label class="amt-custom"><span>$</span><input type="number" min="1" placeholder="Other" id="amt-custom" aria-label="Custom amount" /></label>
-            </div>
-            <p class="give-impact" id="give-impact">$50 provides 10 Bibles for new believers.</p>
-            <a class="btn btn-gold btn-block" id="give-btn" data-href="givingLink" target="_blank" rel="noopener">Give $50 now</a>
-            <p class="tiny">Secure giving. You'll be taken to our giving page to complete your gift.</p>
-          </div>
-
-          <div class="give-ways reveal">
-            <div class="way">
-              <h4>Bank Transfer</h4>
-              <p id="bank-details">Account Name: Richard Engmann Ministries<br/>Bank: — add your bank —<br/>Account No: — add your number —</p>
-            </div>
-            <div class="way">
-              <h4>Mobile Money</h4>
-              <p id="mobile-money">— add your mobile money details —</p>
-            </div>
-            <div class="way">
-              <h4>Become a Monthly Partner</h4>
-              <p>Partners receive a monthly ministry report, prayer letters and special invites to partner gatherings.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ NEWSLETTER ============ -->
-    <section class="newsletter" id="newsletter">
-      <div class="container newsletter-inner reveal">
-        <div>
-          <h3>Get the weekly devotional</h3>
-          <p>A short word of encouragement in your inbox every Monday, plus live service reminders.</p>
-        </div>
-        <form id="newsletter-form" class="newsletter-form" novalidate>
-          <input type="email" name="email" placeholder="Your email address" required aria-label="Email address" />
-          <button class="btn btn-dark" type="submit">Subscribe</button>
-          <p class="form-status" role="status"></p>
-        </form>
+    <!-- ============ INVITE ============ -->
+    <section class="invite" id="invite">
+      <div class="container invite-inner reveal">
+        <h2>Invite <span data-bind="preacherName">Richard Engmann</span></h2>
+        <p>Bring the Word and the move of the Spirit to your church, conference or city.</p>
+        <a href="#contact" class="btn btn-dark" data-subject="Speaking invitation">Send an invitation</a>
       </div>
     </section>
 
@@ -433,34 +258,47 @@
     <section class="section" id="contact">
       <div class="container contact-grid">
         <div class="reveal">
-          <p class="eyebrow">Contact</p>
-          <h2>Let's talk</h2>
-          <p>For speaking invitations, mission partnerships, media or general questions, send a message and our team will respond within two working days.</p>
+          <p class="kicker">Contact</p>
+          <h2>Get in touch</h2>
+          <p class="muted">For speaking invitations, prayer requests, partnership or media, send a message and our team will respond within two working days. Prayer requests are kept confidential.</p>
           <ul class="contact-list">
-            <li><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg><a data-href="emailLink" data-bind="email">info@richardengmannministries.org</a></li>
-            <li><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><a data-href="phoneLink" data-bind="phone">+000 000 0000</a></li>
-            <li><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-bind="address">Ministry Headquarters, Your City</span></li>
+            <li><span>P</span><a data-href="phoneLink" data-bind="phone">+000 000 0000</a></li>
+            <li><span>E</span><a data-href="emailLink" data-bind="email">info@richardengmannministries.org</a></li>
+            <li><span>M</span><span data-bind="address">P.O. Box 000, Your City</span></li>
           </ul>
           <div class="socials" id="socials"></div>
         </div>
 
         <form class="form-card reveal" id="contact-form" novalidate>
-          <h3>Send a message</h3>
           <div class="field-row">
             <label>Name<input name="name" required autocomplete="name" /></label>
             <label>Email<input name="email" type="email" required autocomplete="email" /></label>
           </div>
           <label>Subject
-            <select name="subject">
+            <select name="subject" id="contact-subject">
               <option>Speaking invitation</option>
-              <option>Mission partnership</option>
+              <option>Prayer request</option>
+              <option>Partnership</option>
+              <option>Books &amp; resources</option>
+              <option>School of Ministry</option>
               <option>Media &amp; press</option>
-              <option>Podcast guest</option>
               <option>General question</option>
             </select>
           </label>
           <label>Message<textarea name="message" rows="5" required></textarea></label>
-          <button class="btn btn-dark btn-block" type="submit">Send Message</button>
+          <button class="btn btn-dark btn-block" type="submit">Send message</button>
+          <p class="form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ NEWSLETTER ============ -->
+    <section class="newsletter" id="newsletter">
+      <div class="container newsletter-inner reveal">
+        <h2>Subscribe to the REM newsletter</h2>
+        <form id="newsletter-form" class="newsletter-form" novalidate>
+          <input type="email" name="email" placeholder="Your email address" required aria-label="Email address" />
+          <button class="btn btn-gold" type="submit">Subscribe</button>
           <p class="form-status" role="status"></p>
         </form>
       </div>
@@ -469,30 +307,16 @@
 
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <a href="#top" class="footer-logo" aria-label="Back to top">
-          <img src="images/logo-mark-white.png" alt="" width="40" height="92" />
-          <span class="footer-logo-name" data-bind="ministryName">Richard Engmann Ministries</span>
-        </a>
-        <p class="footer-verse">“How beautiful are the feet of them that preach the gospel of peace.” — Romans 10:15</p>
-      </div>
-      <div>
-        <h4>Explore</h4>
-        <a href="#live">Watch Live</a><a href="#sermons">Sermons</a><a href="#podcast">Podcast</a><a href="#events">Events</a>
-      </div>
-      <div>
-        <h4>Ministry</h4>
-        <a href="#mission">Missions</a><a href="#about">About Richard</a><a href="#prayer">Prayer Request</a><a href="#give">Give</a>
-      </div>
-      <div>
-        <h4>Service Times</h4>
-        <div id="footer-times"></div>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <p>© <span id="year"></span> <span data-bind="ministryName">Richard Engmann Ministries</span>. All rights reserved.</p>
-      <a href="#top" class="to-top">Back to top ↑</a>
+    <div class="container footer-inner">
+      <a href="#home" class="footer-logo" aria-label="Back to top">
+        <img src="images/logo-mark-white.png" alt="" width="36" height="83" />
+        <span class="footer-logo-name" data-bind="ministryName">Richard Engmann Ministries</span>
+      </a>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#about">About</a><a href="#resources">Resources</a><a href="#live">Watch Live</a><a href="#podcast">Podcast</a><a href="#events">Events</a><a href="#partner">Partner</a><a href="#contact">Contact</a>
+      </nav>
+      <div class="socials footer-socials" id="footer-socials"></div>
+      <p class="copyright">© <span id="year"></span> <span data-bind="ministryName">Richard Engmann Ministries</span>. All rights reserved.</p>
     </div>
   </footer>
 
@@ -500,8 +324,8 @@
   <nav class="tabbar" aria-label="App navigation">
     <a href="#home" class="tab active" data-tab="home"><svg viewBox="0 0 24 24"><path d="M12 3 2 11h3v9h5v-6h4v6h5v-9h3z"/></svg><span>Home</span></a>
     <a href="#live" class="tab" data-tab="live"><span class="tab-live-dot live-dot"></span><svg viewBox="0 0 24 24"><path d="M21 6h-7.6l3.3-3.3-.7-.7L12 6 8 2l-.7.7L10.6 6H3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zm0 14H3V8h18zM9 10v8l7-4z"/></svg><span>Live</span></a>
-    <a href="#sermons" class="tab" data-tab="sermons"><svg viewBox="0 0 24 24"><path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM9 4h2v5l-1-.8L9 9zm9 16H6V4h1v9l3-2.3 3 2.3V4h5z"/></svg><span>Sermons</span></a>
     <a href="#podcast" class="tab" data-tab="podcast"><svg viewBox="0 0 24 24"><path d="M12 3a4 4 0 0 1 4 4v5a4 4 0 0 1-8 0V7a4 4 0 0 1 4-4zm7 9a7 7 0 0 1-6 6.93V22h-2v-3.07A7 7 0 0 1 5 12h2a5 5 0 0 0 10 0z"/></svg><span>Podcast</span></a>
+    <a href="#events" class="tab" data-tab="events"><svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V9h14z"/></svg><span>Events</span></a>
     <button class="tab" data-tab="more" id="more-btn" aria-haspopup="dialog" aria-controls="more-sheet"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zm10 0h6v6h-6zM4 14h6v6H4zm10 0h6v6h-6z"/></svg><span>More</span></button>
   </nav>
 
@@ -513,15 +337,15 @@
       <button class="sheet-close" id="sheet-close" aria-label="Close">✕</button>
     </div>
     <div class="sheet-grid">
-      <a href="#mission" class="tile"><span class="qa-ico qa-gold"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1 17.9A8 8 0 0 1 4 12l5 5v1a2 2 0 0 0 2 2zm6.9-2.5A2 2 0 0 0 16 16h-1v-3a1 1 0 0 0-1-1H8v-2h2a1 1 0 0 0 1-1V7h2a2 2 0 0 0 2-2v-.4a8 8 0 0 1 2.9 12.8z"/></svg></span>Mission</a>
-      <a href="#events" class="tile"><span class="qa-ico qa-blue"><svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V9h14z"/></svg></span>Events</a>
-      <a href="#about" class="tile"><span class="qa-ico qa-purple"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg></span>About</a>
-      <a href="#prayer" class="tile"><span class="qa-ico qa-red"><svg viewBox="0 0 24 24"><path d="M12 21.4 10.6 20C5.4 15.4 2 12.3 2 8.5 2 5.4 4.4 3 7.5 3c1.7 0 3.4.8 4.5 2.1A6 6 0 0 1 16.5 3C19.6 3 22 5.4 22 8.5c0 3.8-3.4 6.9-8.6 11.5z"/></svg></span>Prayer</a>
-      <a href="#testimonies" class="tile"><span class="qa-ico qa-green"><svg viewBox="0 0 24 24"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM9 11H7V9h2zm4 0h-2V9h2zm4 0h-2V9h2z"/></svg></span>Testimonies</a>
-      <a href="#give" class="tile"><span class="qa-ico qa-gold"><svg viewBox="0 0 24 24"><path d="M20 7h-2.2A3 3 0 0 0 12 3.8 3 3 0 0 0 6.2 7H4a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8h1a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zM15 5a1 1 0 1 1 0 2h-2a2 2 0 0 1 2-2zM9 5a2 2 0 0 1 2 2H9a1 1 0 1 1 0-2zm2 15H7v-8h4zm0-10H5V9h6zm6 10h-4v-8h4zm2-10h-6V9h6z"/></svg></span>Give</a>
-      <a href="#contact" class="tile"><span class="qa-ico qa-blue"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg></span>Contact</a>
-      <a href="#newsletter" class="tile"><span class="qa-ico qa-green"><svg viewBox="0 0 24 24"><path d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6v-5c0-3.1-1.6-5.6-4.5-6.3V4a1.5 1.5 0 0 0-3 0v.7C7.6 5.4 6 7.9 6 11v5l-2 2v1h16v-1z"/></svg></span>Devotional</a>
-      <button class="tile install-tile" id="install-tile" hidden><span class="qa-ico qa-dark"><svg viewBox="0 0 24 24"><path d="M17 1H7a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm0 18H7V5h10zm-5-1 4-4h-3V8h-2v6H8z"/></svg></span>Install App</button>
+      <a href="#about" class="tile"><span class="qa-ico"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg></span>About</a>
+      <a href="#resources" class="tile"><span class="qa-ico"><svg viewBox="0 0 24 24"><path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM9 4h2v5l-1-.8L9 9zm9 16H6V4h1v9l3-2.3 3 2.3V4h5z"/></svg></span>Resources</a>
+      <a href="#videos" class="tile"><span class="qa-ico"><svg viewBox="0 0 24 24"><path d="M4 6H2v14a2 2 0 0 0 2 2h14v-2H4zm16-4H8a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-8 12.5v-9l6 4.5z"/></svg></span>Videos</a>
+      <a href="#partner" class="tile"><span class="qa-ico gold"><svg viewBox="0 0 24 24"><path d="M20 7h-2.2A3 3 0 0 0 12 3.8 3 3 0 0 0 6.2 7H4a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8h1a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zM15 5a1 1 0 1 1 0 2h-2a2 2 0 0 1 2-2zM9 5a2 2 0 0 1 2 2H9a1 1 0 1 1 0-2zm2 15H7v-8h4zm0-10H5V9h6zm6 10h-4v-8h4zm2-10h-6V9h6z"/></svg></span>Partner</a>
+      <a href="#contact" class="tile" data-subject="Prayer request"><span class="qa-ico"><svg viewBox="0 0 24 24"><path d="M12 21.4 10.6 20C5.4 15.4 2 12.3 2 8.5 2 5.4 4.4 3 7.5 3c1.7 0 3.4.8 4.5 2.1A6 6 0 0 1 16.5 3C19.6 3 22 5.4 22 8.5c0 3.8-3.4 6.9-8.6 11.5z"/></svg></span>Prayer</a>
+      <a href="#contact" class="tile" data-subject="Speaking invitation"><span class="qa-ico"><svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zm7 9a7 7 0 0 1-14 0H3a9 9 0 0 0 8 8.94V23h2v-3.06A9 9 0 0 0 21 11z"/></svg></span>Invite</a>
+      <a href="#contact" class="tile"><span class="qa-ico"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg></span>Contact</a>
+      <a href="#newsletter" class="tile"><span class="qa-ico"><svg viewBox="0 0 24 24"><path d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6v-5c0-3.1-1.6-5.6-4.5-6.3V4a1.5 1.5 0 0 0-3 0v.7C7.6 5.4 6 7.9 6 11v5l-2 2v1h16v-1z"/></svg></span>Newsletter</a>
+      <button class="tile install-tile" id="install-tile" hidden><span class="qa-ico gold"><svg viewBox="0 0 24 24"><path d="M17 1H7a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm0 18H7V5h10zm-5-1 4-4h-3V8h-2v6H8z"/></svg></span>Install App</button>
     </div>
     <div class="sheet-socials" id="sheet-socials"></div>
   </section>
