@@ -12,12 +12,18 @@ window.SITE = {
   address: "P.O. Box 000, Your City",             // PLACEHOLDER
 
   /* ---------- Photos ----------
-     Put photos in the "images" folder and type the file name here, e.g. "images/hero.jpg".
-     Leave empty to show the dark stand-in backgrounds. */
+     Put photos in the "images" folder and type the file name here.
+     position: which part of the photo to keep in view when it is cropped
+     ("left/right %" then "top/bottom %"), e.g. "45% 30%" keeps the face visible.
+     The hero shows its photos as a slideshow, in this order. */
   photos: {
-    hero: "",        // wide photo of Pastor Engmann preaching (landscape, at least 1920px wide)
-    about: "",       // portrait photo for the biography
-    partner: "",     // crowd / outreach photo behind the partner section
+    hero: [
+      { src: "images/pastor-1.jpg", position: "44% 28%" },
+      { src: "images/pastor-2.jpg", position: "52% 30%" },
+      { src: "images/pastor-3.jpg", position: "56% 32%" },
+    ],
+    about: { src: "images/pastor-portrait.jpg", position: "50% 22%" },
+    partner: { src: "images/pastor-2.jpg", position: "50% 40%" },
   },
 
   /* ---------- YouTube ----------

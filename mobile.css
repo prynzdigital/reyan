@@ -32,6 +32,7 @@ html { -webkit-tap-highlight-color: transparent; }
 
   /* Hero: name + tagline + app shortcuts */
   .hero { min-height: 88svh; padding: calc(var(--header-h) + var(--safe-t) + 30px) 20px 48px; }
+  .hero.has-photos { padding-bottom: 36px; }
   .hero h1 { font-size: clamp(3.6rem, 19vw, 5.5rem); }
   .hero-sub { font-size: .8rem; letter-spacing: .6em; padding-left: .6em; }
   .hero-tagline { font-size: .68rem; letter-spacing: .16em; margin: 1.6rem 0 2rem; white-space: nowrap; }
@@ -51,7 +52,7 @@ html { -webkit-tap-highlight-color: transparent; }
   h2 { font-size: 2.6rem; }
 
   /* Bio */
-  .bio-photo { aspect-ratio: 1; max-width: none; }
+  .bio-photo { aspect-ratio: 4/5; max-width: none; }
 
   /* Tiles: swipeable cards */
   .tiles { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; gap: 12px; margin-inline: -20px; padding: 0 20px 6px; scroll-padding-inline: 20px; }

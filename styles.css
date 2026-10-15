@@ -83,7 +83,13 @@ p { margin: 0 0 1.1em; }
 /* ---------- Hero ---------- */
 .hero { position: relative; min-height: 100vh; min-height: 100svh; display: grid; place-items: center; text-align: center; color: var(--white); background: var(--black); overflow: hidden; padding: calc(var(--header-h) + 40px) 24px 80px; }
 .hero-media { position: absolute; inset: 0; background-size: cover; background-position: center 30%; }
-.hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.25) 40%, rgba(0,0,0,.85) 100%); }
+.hero-media::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.25) 40%, rgba(0,0,0,.85) 100%); }
+/* With photos: keep the face clear and sit the name in the lower part of the screen */
+.hero.has-photos { place-items: end center; padding-bottom: 110px; }
+.hero-media.has-photo::after { background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.05) 28%, rgba(0,0,0,.15) 50%, rgba(0,0,0,.75) 72%, rgba(0,0,0,.95) 100%); }
+.hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center 30%; opacity: 0; transform: scale(1.04); transition: opacity 1.6s ease, transform 8s ease-out; }
+.hero-slide.on { opacity: 1; transform: scale(1); }
+@media (prefers-reduced-motion: reduce) { .hero-slide { transition: none; transform: none; } }
 .hero-media.has-photo .stage-lights { display: none; }
 /* Stand-in until a photo is added: stage lights over a dark platform */
 .stage-lights {
@@ -97,7 +103,7 @@ p { margin: 0 0 1.1em; }
     #050608;
 }
 .stage-lights::after { content: ""; position: absolute; inset: 0; opacity: .08; background-image: radial-gradient(rgba(255,255,255,.9) 1px, transparent 1px); background-size: 3px 3px; mix-blend-mode: overlay; }
-.hero-content { position: relative; max-width: 1280px; }
+.hero-content { position: relative; z-index: 2; max-width: 1280px; }
 .hero h1 { font-size: clamp(4rem, 10.5vw, 9.5rem); letter-spacing: .04em; line-height: .9; margin: .2em 0 .15em; text-shadow: 0 10px 40px rgba(0,0,0,.5); }
 .hero-sub { display: block; font: 600 clamp(.85rem, 1.7vw, 1.35rem)/1 var(--sans); letter-spacing: .75em; padding-left: .75em; margin-top: .9em; text-shadow: none; color: rgba(255,255,255,.92); }
 .hero-tagline { font: 600 clamp(.85rem, 1.6vw, 1.15rem)/1.5 var(--sans); letter-spacing: .38em; text-transform: uppercase; margin: 2.6rem 0 2.6rem; color: rgba(255,255,255,.9); }
@@ -106,7 +112,7 @@ p { margin: 0 0 1.1em; }
 .live-dot.on { background: #ff3b3b; }
 .live-dot.on::after { content: ""; position: absolute; inset: -5px; border-radius: 50%; border: 2px solid #ff3b3b; animation: pulse 1.6s ease-out infinite; }
 @keyframes pulse { from { transform: scale(.5); opacity: 1; } to { transform: scale(1.6); opacity: 0; } }
-.scroll-cue { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); width: 26px; height: 42px; border: 2px solid rgba(255,255,255,.6); border-radius: 14px; }
+.scroll-cue { position: absolute; z-index: 2; bottom: 28px; left: 50%; transform: translateX(-50%); width: 26px; height: 42px; border: 2px solid rgba(255,255,255,.6); border-radius: 14px; }
 .scroll-cue span { position: absolute; top: 8px; left: 50%; width: 4px; height: 8px; margin-left: -2px; border-radius: 2px; background: var(--white); animation: cue 1.8s ease-in-out infinite; }
 @keyframes cue { 0% { opacity: 0; transform: translateY(0); } 40% { opacity: 1; } 100% { opacity: 0; transform: translateY(12px); } }
 .quick-actions { display: none; }
@@ -175,7 +181,7 @@ p { margin: 0 0 1.1em; }
 /* ---------- Partner ---------- */
 .partner { background: var(--black); color: var(--white); overflow: hidden; }
 .partner-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 85% 50%, rgba(201,162,74,.18), transparent 70%); background-size: cover; background-position: center; }
-.partner-bg.has-photo::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.75); }
+.partner-bg.has-photo::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.84); }
 .partner-grid { position: relative; display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2.5rem, 6vw, 5rem); align-items: center; }
 .partner-copy > p { color: rgba(255,255,255,.78); font-size: 1.05rem; }
 .project { margin-top: 2rem; padding-top: 1.6rem; border-top: 1px solid rgba(255,255,255,.15); }

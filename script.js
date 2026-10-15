@@ -26,7 +26,14 @@
   };
   const isExternal = (url) => /^https?:/i.test(url || "");
   const linkAttrs = (url) => `href="${esc(url || "#")}"${isExternal(url) ? ' target="_blank" rel="noopener"' : ""}`;
-  const setPhoto = (el, src) => { if (el && src) { el.style.backgroundImage = `url("${encodeURI(src)}")`; el.classList.add("has-photo"); } };
+  // A photo is either "images/x.jpg" or { src: "images/x.jpg", position: "50% 30%" }.
+  const setPhoto = (el, photo) => {
+    const p = typeof photo === "string" ? { src: photo } : photo;
+    if (!el || !p?.src) return;
+    el.style.backgroundImage = `url("${encodeURI(p.src)}")`;
+    if (p.position) el.style.backgroundPosition = p.position;
+    el.classList.add("has-photo");
+  };
 
   /* ---------- Text bindings & links ---------- */
   $$("[data-bind]").forEach((el) => { const v = S[el.dataset.bind]; if (v) el.textContent = v; });
@@ -59,7 +66,30 @@
   $("#footer-socials").innerHTML = socialsHTML;
 
   /* ---------- Photos ---------- */
-  setPhoto($("#hero-media"), S.photos?.hero);
+  // Hero slideshow: photos crossfade in the order listed, starting with the first.
+  const heroPhotos = [].concat(S.photos?.hero || []).filter((p) => (typeof p === "string" ? p : p?.src));
+  const heroMedia = $("#hero-media");
+  if (heroPhotos.length) {
+    heroMedia.classList.add("has-photo");
+    $(".hero").classList.add("has-photos");
+    const slides = heroPhotos.map((p, i) => {
+      const slide = document.createElement("div");
+      slide.className = "hero-slide" + (i === 0 ? " on" : "");
+      setPhoto(slide, p);
+      heroMedia.appendChild(slide);
+      return slide;
+    });
+    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (slides.length > 1 && !still) {
+      let cur = 0;
+      setInterval(() => {
+        if (document.hidden) return;
+        slides[cur].classList.remove("on");
+        cur = (cur + 1) % slides.length;
+        slides[cur].classList.add("on");
+      }, 6500);
+    }
+  }
   setPhoto($("#bio-photo"), S.photos?.about);
   setPhoto($("#partner-bg"), S.photos?.partner);
 
