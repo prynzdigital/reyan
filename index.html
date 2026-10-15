@@ -533,6 +533,16 @@
     <button class="ib-close" id="install-close" aria-label="Dismiss">✕</button>
   </div>
 
+  <div class="install-guide" id="install-guide" role="dialog" aria-modal="true" aria-labelledby="install-guide-title" hidden>
+    <div class="ig-card">
+      <img src="icons/icon-192.png" alt="" width="64" height="64" class="ig-icon" />
+      <h3 id="install-guide-title">Add to your phone</h3>
+      <ol class="ig-steps" id="install-steps"></ol>
+      <button class="btn btn-outline btn-block" id="install-copy" hidden>Copy link</button>
+      <button class="btn btn-dark btn-block" data-close-guide>Got it</button>
+    </div>
+  </div>
+
   <script src="site-data.js"></script>
   <script src="script.js"></script>
   <script src="app.js"></script>

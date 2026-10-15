@@ -34,7 +34,7 @@ It then opens full-screen with its own icon and still loads when offline.
 | `mobile.css` | Phone app layout |
 | `app.js` | Tab bar, More sheet, install prompt |
 | `manifest.webmanifest` | App name, colors, icons, home-screen shortcuts |
-| `sw.js` | Offline support. **Change `VERSION` (e.g. `reyan-v2`) each time you publish updates** so installed apps get the new files. |
+| `sw.js` | Offline support. Updates show up automatically; files are cached only so the app opens offline. |
 | `icons/` | App icons |
 
 ## Preview locally

@@ -1,6 +1,6 @@
 /* Service worker: lets the installed app open offline and load instantly.
-   Bump VERSION whenever you publish changes so phones pick up the new files. */
-const VERSION = "reyan-v1";
+   Files load from the network first (always fresh) and fall back to the cache offline. */
+const VERSION = "reyan-v3";
 const ASSETS = [
   "./",
   "index.html",
@@ -32,27 +32,14 @@ self.addEventListener("fetch", (e) => {
   // Only handle our own files; YouTube, fonts, audio etc. go straight to the network.
   if (req.method !== "GET" || url.origin !== self.location.origin) return;
 
-  // Pages: network first so content stays fresh, cached copy when offline.
-  if (req.mode === "navigate") {
-    e.respondWith(
-      fetch(req)
-        .then((res) => {
-          if (res.ok) { const copy = res.clone(); caches.open(VERSION).then((c) => c.put("index.html", copy)); }
-          return res;
-        })
-        .catch(() => caches.match("index.html"))
-    );
-    return;
-  }
-
-  // Other files: serve from cache, refresh in the background.
+  // Network first so updates show immediately; cached copy when offline.
+  const key = req.mode === "navigate" ? "index.html" : req;
   e.respondWith(
-    caches.match(req).then((cached) => {
-      const fresh = fetch(req).then((res) => {
-        if (res.ok) { const copy = res.clone(); caches.open(VERSION).then((c) => c.put(req, copy)); }
+    fetch(req)
+      .then((res) => {
+        if (res.ok) { const copy = res.clone(); caches.open(VERSION).then((c) => c.put(key, copy)); }
         return res;
-      }).catch(() => cached);
-      return cached || fresh;
-    })
+      })
+      .catch(() => caches.match(key, { ignoreSearch: true }))
   );
 });

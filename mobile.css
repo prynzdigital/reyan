@@ -215,5 +215,29 @@ html { -webkit-tap-highlight-color: transparent; }
   @keyframes rise { from { transform: translateY(30px); opacity: 0; } }
 }
 
+/* Install guide (all screen sizes) */
+.install-guide {
+  position: fixed; inset: 0; z-index: 200; display: grid; place-items: end center;
+  padding: 16px 16px calc(16px + env(safe-area-inset-bottom, 0px));
+  background: rgba(5, 10, 20, .6); opacity: 0; transition: opacity .25s;
+}
+.install-guide[hidden] { display: none; }
+.install-guide.open { opacity: 1; }
+.ig-card {
+  width: min(420px, 100%); background: #fff; color: var(--text); border-radius: 24px;
+  padding: 1.6rem 1.4rem 1.3rem; text-align: center; display: grid; gap: .7rem;
+  transform: translateY(24px); transition: transform .3s cubic-bezier(.2,.8,.2,1);
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,.6);
+}
+.install-guide.open .ig-card { transform: none; }
+.ig-card [hidden] { display: none; }
+.ig-icon { margin: 0 auto; border-radius: 16px; box-shadow: var(--shadow); }
+.ig-card h3 { margin: .2rem 0 0; font-size: 1.35rem; }
+.ig-steps { text-align: left; margin: .2rem 0 .4rem; padding: 0; list-style: none; counter-reset: s; display: grid; gap: .7rem; }
+.ig-steps li { counter-increment: s; display: grid; grid-template-columns: 28px 1fr; gap: .7rem; align-items: start; font-size: .95rem; line-height: 1.45; }
+.ig-steps li::before { content: counter(s); width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: var(--gold-2); display: grid; place-items: center; font-weight: 700; font-size: .85rem; }
+.inline-ico { width: 18px; height: 18px; fill: #1a73e8; vertical-align: -3px; display: inline-block; }
+@media (min-width: 769px) { .install-guide { place-items: center; } }
+
 /* Installed (home-screen) app */
 .standalone .install-tile, .standalone .install-banner { display: none !important; }
