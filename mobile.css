@@ -6,7 +6,7 @@
 html { -webkit-tap-highlight-color: transparent; }
 
 @media (max-width: 768px) {
-  :root { --header-h: 78px; --tab-h: 64px; --safe-b: env(safe-area-inset-bottom, 0px); --safe-t: env(safe-area-inset-top, 0px); }
+  :root { --header-h: 60px; --tab-h: 64px; --safe-b: env(safe-area-inset-bottom, 0px); --safe-t: env(safe-area-inset-top, 0px); }
   html { scroll-padding-top: calc(var(--header-h) + var(--safe-t)); }
   body { padding-bottom: calc(var(--tab-h) + var(--safe-b)); }
   body.has-player { padding-bottom: calc(var(--tab-h) + var(--safe-b) + 96px); }
@@ -18,9 +18,9 @@ html { -webkit-tap-highlight-color: transparent; }
   .header-inner { width: calc(100% - 32px); }
   .nav-toggle, .main-nav { display: none; }
   .header-give { display: inline-flex; padding: .6rem 1rem; }
-  .brand { gap: .35rem; }
-  .brand-logo { height: 34px; }
-  .brand-text { font-size: .54rem; }
+  .brand-logo { height: 38px; }
+  .brand-text { font-size: 1.15rem; padding-left: .65rem; }
+  .brand-text small { font-size: .5rem; letter-spacing: .42em; }
 
   /* Long button labels wrap instead of widening the page */
   .btn { white-space: normal; text-align: center; line-height: 1.3; }

@@ -17,7 +17,7 @@
   --red: #e53935;
   --display: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --header-h: 96px;
+  --header-h: 76px;
   --shadow: 0 24px 60px -24px rgba(0,0,0,.45);
 }
 
@@ -62,10 +62,10 @@ p { margin: 0 0 1.1em; }
 /* ---------- Header ---------- */
 .site-header { position: fixed; inset: 0 0 auto; z-index: 100; height: var(--header-h); background: var(--black); color: var(--white); border-bottom: 1px solid rgba(255,255,255,.08); }
 .header-inner { height: 100%; width: min(1320px, 100% - 48px); margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
-.brand { display: flex; flex-direction: column; align-items: center; gap: .45rem; text-decoration: none; }
-.brand-logo { height: 44px; width: auto; flex: none; }
-.brand-text { display: flex; flex-direction: column; align-items: center; font: 700 .64rem/1.35 var(--sans); letter-spacing: .26em; padding-left: .26em; text-transform: uppercase; white-space: nowrap; }
-.brand-text small { font: inherit; letter-spacing: .26em; }
+.brand { display: flex; align-items: center; gap: .8rem; text-decoration: none; }
+.brand-logo { height: 46px; width: auto; flex: none; }
+.brand-text { display: flex; flex-direction: column; font: 400 1.35rem/1 var(--display); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; border-left: 1px solid rgba(255,255,255,.25); padding-left: .8rem; }
+.brand-text small { font: 600 .58rem/1.6 var(--sans); letter-spacing: .5em; opacity: .7; }
 .main-nav { display: flex; align-items: center; gap: .3rem; }
 .main-nav a:not(.btn) { text-decoration: none; font: 600 .74rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; padding: .7rem .8rem; opacity: .8; transition: opacity .2s, color .2s; }
 .main-nav a:not(.btn):hover, .main-nav a.active { opacity: 1; color: var(--gold-2); }
