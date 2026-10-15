@@ -96,7 +96,7 @@
     };
     if (isIOS) return {
       title: "Add to your iPhone",
-      steps: [`Tap the <b>Share</b> button ${SHARE_ICON} in the browser bar${/CriOS|FxiOS|EdgiOS/i.test(ua) ? " (top right)" : " (bottom of the screen)"}.`, "Scroll down and tap <b>Add to Home Screen</b>.", "Tap <b>Add</b>. The Reyan app now appears on your home screen."],
+      steps: [`Tap the <b>Share</b> button ${SHARE_ICON} in the browser bar${/CriOS|FxiOS|EdgiOS/i.test(ua) ? " (top right)" : " (bottom of the screen)"}.`, "Scroll down and tap <b>Add to Home Screen</b>.", "Tap <b>Add</b>. The app now appears on your home screen."],
     };
     if (isSamsung) return {
       title: "Add to your phone",
@@ -108,7 +108,7 @@
     };
     return {
       title: "Install on this computer",
-      steps: ["Click the <b>install icon</b> at the right end of the address bar (Chrome / Edge).", `Or open the browser menu ${DOTS_ICON} → <b>Install Reyan Ministries</b>.`],
+      steps: ["Click the <b>install icon</b> at the right end of the address bar (Chrome / Edge).", `Or open the browser menu ${DOTS_ICON} → <b>Install Richard Engmann Ministries</b>.`],
     };
   }
   function openGuide() {

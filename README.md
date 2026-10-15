@@ -1,6 +1,6 @@
-# Reyan Ministries — Website
+# Richard Engmann Ministries — Website
 
-A fast, mobile-friendly website for Reyan's preaching ministry: live YouTube services, sermon library, podcast, missions, events, prayer requests, giving and contact.
+A fast, mobile-friendly website for Richard Engmann's preaching ministry: live YouTube services, sermon library, podcast, missions, events, prayer requests, giving and contact.
 
 ## Files
 | File | What it is |
@@ -16,7 +16,7 @@ A fast, mobile-friendly website for Reyan's preaching ministry: live YouTube ser
 3. **Podcast** — paste Spotify / Apple Podcasts links into `links`. Add an `.mp3` URL to an episode's `audio` to play it right on the site.
 4. **Giving** — set `links.givingLink` to your PayPal / Stripe / giving page, and fill in bank & mobile money details in `index.html` (search for "add your bank").
 5. **Forms** — create a free form at [formspree.io](https://formspree.io) and paste its URL into `formEndpoint` so prayer requests and messages reach your inbox. Until then, forms open the visitor's email app.
-6. **Photo** — put a photo at `images/reyan.jpg` and in `index.html` replace the `photo-placeholder` block with `<img src="images/reyan.jpg" alt="Reyan preaching" />`.
+6. **Photo** — put a photo at `images/richard-engmann.jpg` and in `index.html` replace the `photo-placeholder` block with `<img src="images/richard-engmann.jpg" alt="Richard Engmann preaching" />`.
 7. **Contact details & socials** — update `email`, `phone`, `address` and `socials` in `site-data.js`.
 8. **Numbers** — the stats (nations reached, salvations, etc.) are in `index.html` as `data-count="…"`. Replace them with real figures.
 

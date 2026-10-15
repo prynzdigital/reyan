@@ -21,8 +21,8 @@ html { -webkit-tap-highlight-color: transparent; }
   }
   .nav-toggle, .main-nav { display: none; }
   .header-give { display: inline-flex; padding: .55rem 1.1rem; }
-  .brand-mark { width: 36px; height: 36px; border-radius: 10px; }
-  .brand-mark svg { width: 19px; height: 19px; }
+  .brand-logo { height: 38px; }
+  .brand-text { padding-left: .65rem; }
   .brand-text strong { font-size: 1.08rem; }
 
   /* Press feedback like native apps */
@@ -143,7 +143,6 @@ html { -webkit-tap-highlight-color: transparent; }
 
   /* About */
   .about-photo { max-width: 300px; }
-  .photo-placeholder span { font-size: 6rem; }
 
   /* Forms: 16px text stops iOS from zooming in */
   .form-card input, .form-card select, .form-card textarea, .newsletter-form input { font-size: 16px; }
@@ -152,8 +151,11 @@ html { -webkit-tap-highlight-color: transparent; }
   /* Footer: the tab bar covers navigation */
   .site-footer { padding-top: 44px; }
   .footer-grid > div:not(:first-child) { display: none; }
-  .footer-grid { padding-bottom: 1.5rem; }
-  .to-top { display: none; }
+  .footer-grid { grid-template-columns: 1fr; padding-bottom: 1.5rem; text-align: center; }
+  .footer-logo img { height: 80px; }
+  .footer-verse { margin-inline: auto; }
+  .site-footer .footer-bottom a.to-top { display: none; }
+  .footer-bottom { justify-content: center; }
 
   /* Tab bar */
   .tabbar {

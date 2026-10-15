@@ -3,9 +3,9 @@
    No coding knowledge needed: change the text between quotes.
    ========================================================= */
 window.SITE = {
-  ministryName: "Reyan Ministries",
+  ministryName: "Richard Engmann Ministries",
   tagline: "Preaching Christ · Reaching Nations",
-  email: "info@reyanministries.org",
+  email: "info@richardengmannministries.org",
   phone: "+000 000 0000",
   address: "Ministry Headquarters, Your City",
 
@@ -15,7 +15,7 @@ window.SITE = {
      or your latest stream when you're offline. */
   youtube: {
     channelId: "",                 // e.g. "UCxxxxxxxxxxxxxxxxxxxxxx"
-    handle: "@ReyanMinistries",    // your @handle
+    handle: "@RichardEngmannMinistries",    // your @handle
   },
 
   /* ---------- Links ---------- */
@@ -26,7 +26,7 @@ window.SITE = {
   },
 
   socials: {
-    youtube: "https://youtube.com/@ReyanMinistries",
+    youtube: "https://youtube.com/@RichardEngmannMinistries",
     facebook: "https://facebook.com/",
     instagram: "https://instagram.com/",
     tiktok: "https://tiktok.com/",
@@ -99,7 +99,7 @@ window.SITE = {
   testimonies: [
     { text: "I watched the Friday prayer stream from my hospital bed. I believed, and within a week the doctors couldn't find the growth. All glory to Jesus!", name: "Grace A.", place: "Online family" },
     { text: "The podcast found me at my lowest point. Episode by episode, God rebuilt my faith. Today I'm serving in my local church.", name: "Daniel K.", place: "Podcast listener" },
-    { text: "Reyan's team brought Bibles and a medical camp to our village. Over 200 people gave their lives to Christ in three days.", name: "Pastor Samuel", place: "Mission partner" },
+    { text: "Richard's team brought Bibles and a medical camp to our village. Over 200 people gave their lives to Christ in three days.", name: "Pastor Samuel", place: "Mission partner" },
   ],
 
   /* Gift impact messages (shown in the Give box) */

@@ -1,6 +1,6 @@
 /* Service worker: lets the installed app open offline and load instantly.
    Files load from the network first (always fresh) and fall back to the cache offline. */
-const VERSION = "reyan-v3";
+const VERSION = "rem-v5";
 const ASSETS = [
   "./",
   "index.html",
@@ -11,6 +11,8 @@ const ASSETS = [
   "app.js",
   "manifest.webmanifest",
   "icons/icon-192.png",
+  "images/logo-mark-white.png",
+  "images/logo-full-white.png",
   "icons/icon-512.png",
 ];
 

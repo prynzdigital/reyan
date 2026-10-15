@@ -1,4 +1,4 @@
-/* Reyan Ministries — site behaviour. Content lives in site-data.js. */
+/* Richard Engmann Ministries — site behaviour. Content lives in site-data.js. */
 (function () {
   "use strict";
   const S = window.SITE || {};
@@ -138,7 +138,7 @@
     }
     const iframe = document.createElement("iframe");
     iframe.src = `https://www.youtube.com/embed/live_stream?channel=${encodeURIComponent(id)}&autoplay=1`;
-    iframe.title = "Reyan Ministries live stream";
+    iframe.title = "Richard Engmann Ministries live stream";
     iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
     iframe.allowFullscreen = true;
     $("#live-player").replaceChildren(iframe);

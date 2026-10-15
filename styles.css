@@ -1,5 +1,5 @@
 /* =========================================================
-   Reyan Ministries — styles
+   Richard Engmann Ministries — styles
    ========================================================= */
 :root {
   --ink: #0f1729;
@@ -105,12 +105,8 @@ em { font-style: italic; }
 .site-header.scrolled { background: rgba(15, 23, 41, .92); backdrop-filter: blur(14px); box-shadow: 0 8px 30px -12px rgba(0,0,0,.5); --header-h: 66px; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
 .brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
-.brand-mark {
-  width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center;
-  background: linear-gradient(135deg, var(--gold-2), var(--gold-deep));
-  box-shadow: 0 6px 18px -6px rgba(224,179,84,.8);
-}
-.brand-mark svg { width: 22px; height: 22px; stroke: var(--ink); stroke-width: 3.4; stroke-linecap: round; fill: none; }
+.brand-logo { height: 46px; width: auto; flex: none; filter: drop-shadow(0 4px 12px rgba(224,179,84,.35)); }
+.brand-text { border-left: 1px solid rgba(255,255,255,.18); padding-left: .8rem; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
 .brand-text strong { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; }
 .brand-text small { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; opacity: .7; }
@@ -369,7 +365,7 @@ em { font-style: italic; }
   width: 100%; height: 100%; display: grid; place-items: center;
   background: radial-gradient(circle at 70% 20%, rgba(243,213,142,.6), transparent 50%), linear-gradient(160deg, #2a3a66, var(--ink));
 }
-.photo-placeholder span { font-family: var(--serif); font-size: 9rem; color: rgba(255,255,255,.9); font-style: italic; }
+.photo-frame .placeholder-logo { width: 26%; object-fit: contain; height: auto; opacity: .95; filter: drop-shadow(0 10px 30px rgba(0,0,0,.35)); }
 .about-photo::before { content: ""; position: absolute; inset: 24px -24px -24px 24px; border: 2px solid var(--gold); border-radius: 28px; z-index: -1; }
 .photo-tag { position: absolute; left: -20px; bottom: 36px; background: #fff; padding: 1rem 1.3rem; border-radius: 16px; box-shadow: var(--shadow); }
 .photo-tag strong { font-family: var(--serif); font-size: 1.25rem; display: block; }
@@ -474,9 +470,12 @@ em { font-style: italic; }
 .site-footer { background: #0a1020; color: rgba(255,255,255,.72); padding: 80px 0 0; }
 .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 2.5rem; padding-bottom: 3rem; }
 .site-footer h4 { color: #fff; margin-bottom: 1rem; font-size: 1rem; }
-.site-footer a:not(.brand) { display: block; text-decoration: none; padding: .25rem 0; font-size: .93rem; transition: color .2s; }
-.site-footer a:not(.brand):hover { color: var(--gold-2); }
+.site-footer a:not(.brand):not(.footer-logo) { display: block; text-decoration: none; padding: .25rem 0; font-size: .93rem; transition: color .2s; }
+.site-footer a:not(.brand):not(.footer-logo):hover { color: var(--gold-2); }
 .brand-light { color: #fff; }
+.site-footer .footer-logo { display: inline-flex; padding: 0; flex-direction: column; align-items: center; gap: .9rem; text-decoration: none; }
+.footer-logo img { height: 92px; width: auto; display: block; }
+.footer-logo-name { font: 700 .8rem/1.5 var(--sans); letter-spacing: .28em; text-transform: uppercase; color: #fff; text-align: center; max-width: 220px; }
 .footer-verse { font-family: var(--serif); font-style: italic; margin-top: 1.4rem; max-width: 340px; }
 #footer-times p { margin: 0 0 .5rem; font-size: .92rem; }
 #footer-times strong { color: #fff; font-weight: 600; }
