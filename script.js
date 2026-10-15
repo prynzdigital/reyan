@@ -233,6 +233,15 @@
   });
   seek.addEventListener("input", () => { if (audio.duration) audio.currentTime = (seek.value / 100) * audio.duration; });
 
+  /* ---------- Signature conferences ---------- */
+  $("#signature-conferences").innerHTML = (S.conferences || []).map((c) => `
+    <article class="conf reveal">
+      <p class="kicker">Signature conference</p>
+      <h3>${esc(c.name)}</h3>
+      <p>${esc(c.text)}</p>
+      <a class="btn btn-gold btn-sm" ${linkAttrs(c.link)} data-event="${esc(c.name)}">${esc(c.cta || "Learn more")}</a>
+    </article>`).join("");
+
   /* ---------- Events ---------- */
   function dateRange(ev) {
     const a = parseDate(ev.date), M = (d) => MONTHS[d.getMonth()].toUpperCase();

@@ -5,7 +5,7 @@
    ========================================================= */
 window.SITE = {
   ministryName: "Richard Engmann Ministries",
-  preacherName: "Richard Engmann",
+  preacherName: "Pastor Engmann",            // how he is addressed across the site
   tagline: "The Word. The Spirit. The Nations.",
   email: "info@richardengmannministries.org",   // PLACEHOLDER
   phone: "+000 000 0000",                         // PLACEHOLDER
@@ -15,7 +15,7 @@ window.SITE = {
      Put photos in the "images" folder and type the file name here, e.g. "images/hero.jpg".
      Leave empty to show the dark stand-in backgrounds. */
   photos: {
-    hero: "",        // wide photo of Richard preaching (landscape, at least 1920px wide)
+    hero: "",        // wide photo of Pastor Engmann preaching (landscape, at least 1920px wide)
     about: "",       // portrait photo for the biography
     partner: "",     // crowd / outreach photo behind the partner section
   },
@@ -46,9 +46,9 @@ window.SITE = {
 
   /* ---------- Biography ---------- */
   bio: [
-    "Richard Engmann is a preacher, teacher and missionary with one burden: that every person would hear the Gospel of Jesus Christ and discover the life God has made available to them.",
-    "Through Richard Engmann Ministries he leads conferences, Gospel outreaches and leadership training, and teaches believers to live by the Word and walk in the power of the Holy Spirit. His teaching is deep yet simple, rooted in Scripture and practical for everyday life.",
-    "From local churches to open-air crusades, online broadcasts and the Faith Café Podcast, Richard is committed to strengthening the Church, raising leaders and reaching the nations.",
+    "Pastor Richard Engmann is a preacher, teacher and missionary with one burden: that every person would hear the Gospel of Jesus Christ and discover the life God has made available to them.",
+    "Through Richard Engmann Ministries he leads the Faith Café Conference and Healing Today, Gospel outreaches and leadership training, and teaches believers to live by the Word and walk in the power of the Holy Spirit. His teaching is deep yet simple, rooted in Scripture and practical for everyday life.",
+    "From local churches to open-air crusades, online broadcasts and the Faith Café Podcast, Pastor Engmann is committed to strengthening the Church, raising leaders and reaching the nations.",
   ],
 
   /* ---------- What the ministry offers (big tiles) ----------
@@ -56,7 +56,7 @@ window.SITE = {
   resources: [
     { title: "Books & Studies", text: "Books and small-group studies that ground believers in the Word and teach them to live it out every day.", link: "#new-release", cta: "View books", image: "" },
     { title: "School of Ministry", text: "Practical, Scripture-rich training courses for believers and leaders who want to grow in the Word and serve with power.", link: "#contact", cta: "Learn more", image: "" },  // PLACEHOLDER name
-    { title: "Meetings & Conferences", text: "Gospel meetings, crusades and conferences where faith is built, lives are changed and the presence of God is known.", link: "#events", cta: "See schedule", image: "" },
+    { title: "Meetings & Conferences", text: "From the Faith Café Conference to Healing Today: gatherings where faith is built, the sick are prayed for and lives are changed.", link: "#events", cta: "See schedule", image: "" },
     { title: "Faith Café Podcast", text: "Honest, faith-building conversations on the Word, prayer and missions. New episodes every week.", link: "#podcast", cta: "Listen", image: "" },
   ],
 
@@ -65,7 +65,7 @@ window.SITE = {
     kicker: "New Release",
     title: "Fire on the Altar",
     subtitle: "Keeping Your Devotion Burning in a Cold World",
-    text: "A practical call back to first love. Drawing from Scripture and years of ministry, Richard shows how prayer, the Word and obedience keep the fire of God alive in an ordinary life.",
+    text: "A practical call back to first love. Drawing from Scripture and years of ministry, Pastor Engmann shows how prayer, the Word and obedience keep the fire of God alive in an ordinary life.",
     cta: "Get a copy",
     link: "#contact",
     cover: "",                                    // optional cover image, e.g. "images/book.jpg"
@@ -114,14 +114,21 @@ window.SITE = {
     { title: "Raising Godly Leaders", date: "2026-09-18", length: "41 min", audio: "" },
   ],
 
+  /* ---------- Signature conferences (shown above the schedule) ----------
+     link: registration or info page; cta: button text. */
+  conferences: [
+    { name: "Faith Café Conference", text: "A gathering around the Word where believers sit at the table of faith: worship, teaching and fellowship that leave you strengthened to believe God.", link: "#contact", cta: "Get updates" },
+    { name: "Healing Today", text: "Jesus still heals today. A conference of Bible teaching on divine healing, faith-filled worship and prayer for the sick.", link: "#contact", cta: "Get updates" },
+  ],
+
   /* ---------- Schedule ----------
      endDate is optional (for multi-day events). link: registration or info page. */
   events: [                                                                       // PLACEHOLDER events
-    { date: "2026-11-14", endDate: "2026-11-15", city: "Accra, Ghana", venue: "Fire Conference 2026", link: "#contact", cta: "Register" },
+    { date: "2026-11-14", endDate: "2026-11-15", city: "Accra, Ghana", venue: "Revival Service", link: "#contact", cta: "Register" },
     { date: "2026-11-28", city: "Kumasi, Ghana", venue: "Living Word Church", link: "#contact", cta: "More info" },
     { date: "2026-12-02", endDate: "2026-12-06", city: "Northern Region, Ghana", venue: "Village Crusade & Medical Outreach", link: "#contact", cta: "Volunteer" },
     { date: "2026-12-31", city: "Accra, Ghana", venue: "Crossover Night — Live on YouTube", link: "#live", cta: "Watch live" },
-    { date: "2027-02-20", endDate: "2027-02-21", city: "London, UK", venue: "Kingdom Life Conference", link: "#contact", cta: "More info" },
+    { date: "2027-02-20", endDate: "2027-02-21", city: "London, UK", venue: "Revival Meetings", link: "#contact", cta: "More info" },
   ],
 
   /* ---------- Forms ----------

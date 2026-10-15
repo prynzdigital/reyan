@@ -31,7 +31,7 @@
     <div class="header-inner">
       <a href="#home" class="brand" aria-label="Richard Engmann Ministries home">
         <img class="brand-logo" src="images/logo-mark-white.png" alt="" width="20" height="46" />
-        <span class="brand-text"><span data-bind="preacherName">Richard Engmann</span><small>Ministries</small></span>
+        <span class="brand-text">Richard Engmann<small>Ministries</small></span>
       </a>
 
       <nav class="main-nav" id="main-nav" aria-label="Main">
@@ -59,11 +59,11 @@
         <div class="stage-lights"></div>
       </div>
       <div class="hero-content">
-        <h1 data-bind="preacherName">Richard Engmann</h1>
+        <h1 class="hero-title"><span class="hero-name">Richard Engmann</span><span class="hero-sub">Ministries</span></h1>
         <p class="hero-tagline" data-bind="tagline">The Word. The Spirit. The Nations.</p>
         <div class="hero-actions">
           <a href="#live" class="btn btn-gold">Watch Live</a>
-          <a href="#contact" class="btn btn-outline-light" data-subject="Speaking invitation">Invite Richard</a>
+          <a href="#contact" class="btn btn-outline-light" data-subject="Speaking invitation">Invite <span data-bind="preacherName">Pastor Engmann</span></a>
         </div>
         <nav class="quick-actions" aria-label="Quick actions">
           <a href="#live" class="qa"><span class="qa-ico"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>Watch</a>
@@ -83,9 +83,9 @@
         </div>
         <div class="bio-copy reveal">
           <p class="kicker">Biography</p>
-          <h2>About <span data-bind="preacherName">Richard Engmann</span></h2>
+          <h2>About <span data-bind="preacherName">Pastor Engmann</span></h2>
           <div id="bio-text"></div>
-          <a href="#contact" class="btn btn-dark" data-subject="Speaking invitation">Invite Richard to minister</a>
+          <a href="#contact" class="btn btn-dark" data-subject="Speaking invitation">Invite <span data-bind="preacherName">Pastor Engmann</span> to minister</a>
         </div>
       </div>
     </section>
@@ -109,7 +109,7 @@
           <div class="book-cover">
             <img src="images/logo-mark-white.png" alt="" class="book-mark" />
             <span class="book-title" id="book-title">Fire on the Altar</span>
-            <span class="book-author" data-bind="preacherName">Richard Engmann</span>
+            <span class="book-author" data-bind="preacherName">Pastor Engmann</span>
           </div>
         </div>
         <div class="release-copy reveal">
@@ -206,7 +206,7 @@
           </div>
           <p class="kicker">The Podcast</p>
           <h2>Faith Café Podcast</h2>
-          <p>Real stories, honest conversations and fresh insight from the Word to help you grow. Join <span data-bind="preacherName">Richard Engmann</span> for each new episode.</p>
+          <p>Real stories, honest conversations and fresh insight from the Word to help you grow. Join <span data-bind="preacherName">Pastor Engmann</span> for each new episode.</p>
           <div class="platforms">
             <a data-href="spotify" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm">Spotify</a>
             <a data-href="applePodcasts" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm">Apple Podcasts</a>
@@ -237,9 +237,10 @@
     <section class="section" id="events">
       <div class="container">
         <div class="section-head reveal">
-          <p class="kicker">REM Schedule</p>
+          <p class="kicker">Conferences &amp; Schedule</p>
           <h2>Upcoming events</h2>
         </div>
+        <div class="signature" id="signature-conferences"></div>
         <div class="event-list" id="event-list"></div>
       </div>
     </section>
@@ -247,7 +248,7 @@
     <!-- ============ INVITE ============ -->
     <section class="invite" id="invite">
       <div class="container invite-inner reveal">
-        <h2>Invite <span data-bind="preacherName">Richard Engmann</span></h2>
+        <h2>Invite <span data-bind="preacherName">Pastor Engmann</span></h2>
         <p>Bring the Word and the move of the Spirit to your church, conference or city.</p>
         <a href="#contact" class="btn btn-dark" data-subject="Speaking invitation">Send an invitation</a>
       </div>
