@@ -37,6 +37,8 @@ window.SITE = {
   links: {
     spotify: "https://open.spotify.com/",
     applePodcasts: "https://podcasts.apple.com/",
+    podcastTiktok: "https://www.tiktok.com/",      // PLACEHOLDER — Faith Café Podcast TikTok page
+    podcastInstagram: "https://www.instagram.com/", // PLACEHOLDER — Faith Café Podcast Instagram page
     givingLink: "#partner",       // your PayPal / Stripe / giving page
     store: "#resources",          // where books are sold (Amazon, Selar, your shop…)
     school: "#resources",         // training school sign-up page

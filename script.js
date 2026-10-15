@@ -47,6 +47,8 @@
     youtubeSubscribe: channelUrl + "?sub_confirmation=1",
     spotify: S.links?.spotify,
     applePodcasts: S.links?.applePodcasts,
+    podcastTiktok: S.links?.podcastTiktok || S.socials?.tiktok,
+    podcastInstagram: S.links?.podcastInstagram || S.socials?.instagram,
     givingLink: S.links?.givingLink,
     emailLink: S.email ? `mailto:${S.email}` : "",
     phoneLink: S.phone ? `tel:${S.phone.replace(/[^\d+]/g, "")}` : "",

@@ -155,6 +155,60 @@
 
   /* ---------- Offline support ---------- */
   if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
-    window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("sw.js", { updateViaCache: "none" })
+        .then((reg) => { swReg = reg; })
+        .catch(() => {});
+    });
+    // A new version of the app took over: reload once to show it
+    // (skipped on the very first install, when there was no previous version).
+    const hadController = !!navigator.serviceWorker.controller;
+    let reloading = false;
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (!hadController || reloading) return;
+      reloading = true;
+      refresh();
+    });
+  }
+
+  /* ---------- Keep the installed app up to date ----------
+     Installed apps stay open in the background, so check for a newer version of the
+     site whenever the app is reopened (and every few minutes while open), then reload. */
+  let swReg = null;
+  const WATCHED = ["./", "site-data.js", "script.js", "app.js", "styles.css", "mobile.css"];
+  const fingerprint = () => Promise.all(WATCHED.map((u) =>
+    fetch(u, { method: "HEAD", cache: "no-store" })
+      .then((r) => r.headers.get("etag") || r.headers.get("last-modified") || "")
+      .catch(() => null)
+  )).then((tags) => (tags.includes(null) ? null : tags.join("|")));
+
+  function busy() {
+    const audio = $("#audio");
+    if (audio && !audio.paused) return true;                          // podcast playing
+    if ($$("form input, form textarea").some((f) => f.value && f.type !== "checkbox" && f.type !== "radio" && f.type !== "number")) return true;
+    if (document.body.classList.contains("sheet-open") || !$("#install-guide").hidden) return true;
+    return !!$(".live-player iframe");                                // watching the live stream
+  }
+  function refresh() {
+    if (busy()) { pending = true; return; }
+    window.location.reload();
+  }
+  let baseline = null, pending = false, hiddenAt = 0;
+  if (location.protocol.startsWith("http")) {
+    window.addEventListener("load", () => fingerprint().then((f) => { baseline = f; }));
+    async function checkForUpdate() {
+      if (!navigator.onLine) return;
+      if (swReg) swReg.update().catch(() => {});
+      const now = await fingerprint();
+      if (now && baseline && now !== baseline) refresh();
+      else if (now && !baseline) baseline = now;
+    }
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) { hiddenAt = Date.now(); return; }
+      if (pending && !busy()) { window.location.reload(); return; }
+      if (Date.now() - hiddenAt > 30 * 1000) checkForUpdate();
+    });
+    setInterval(() => { if (!document.hidden) checkForUpdate(); }, 5 * 60 * 1000);
+    window.addEventListener("online", checkForUpdate);
   }
 })();

@@ -1,6 +1,6 @@
 /* Service worker: lets the installed app open offline and load instantly.
    Files load from the network first (always fresh) and fall back to the cache offline. */
-const VERSION = "rem-v8";
+const VERSION = "rem-v9";
 const ASSETS = [
   "./",
   "index.html",
@@ -35,9 +35,13 @@ self.addEventListener("fetch", (e) => {
   if (req.method !== "GET" || url.origin !== self.location.origin) return;
 
   // Network first so updates show immediately; cached copy when offline.
+  // cache: "no-cache" asks the server every time, so a new upload shows up straight away.
   const key = req.mode === "navigate" ? "index.html" : req;
+  const fresh = req.mode === "navigate"
+    ? fetch(req.url, { cache: "no-cache", credentials: "same-origin" })
+    : fetch(req, { cache: "no-cache" });
   e.respondWith(
-    fetch(req)
+    fresh
       .then((res) => {
         if (res.ok) { const copy = res.clone(); caches.open(VERSION).then((c) => c.put(key, copy)); }
         return res;
