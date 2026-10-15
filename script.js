@@ -153,13 +153,10 @@
     return { live: false, ...all.filter((w) => w.start > now).sort((a, b) => a.start - b.start)[0] };
   }
   function tick() {
-    if (!services.length) { $("#live-pill").hidden = true; return; }
+    if (!services.length) return;
     const n = nextService(new Date());
     $$(".live-dot").forEach((d) => d.classList.toggle("on", n.live));
     $("#live-badge-text").textContent = n.live ? "LIVE NOW" : "LIVE STREAM";
-    $("#hero-status").textContent = n.live
-      ? `Live now — ${n.s.name}`
-      : `Next live: ${n.s.name} · ${DAYS[n.start.getDay()].slice(0, 3)} ${fmtTime(n.s.time)}`;
   }
   tick();
   setInterval(tick, 30000);
