@@ -99,7 +99,7 @@
   /* ---------- Resource tiles ---------- */
   $("#tiles").innerHTML = (S.resources || []).map((r, i) => `
     <a class="tile-card tile-bg-${i % 4} reveal" ${linkAttrs(r.link)}${r.image ? ` style="background-image:url('${encodeURI(r.image)}')"` : ""}>
-      <h3>${esc(r.title)}</h3>
+      ${r.logo ? `<h3 class="tile-logo"><img src="${esc(r.logo)}" alt="${esc(r.title)}" /></h3>` : `<h3>${esc(r.title)}</h3>`}
       <p>${esc(r.text)}</p>
       <span class="tile-cta">${esc(r.cta || "View more")} →</span>
     </a>`).join("");

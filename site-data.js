@@ -58,12 +58,13 @@ window.SITE = {
   ],
 
   /* ---------- What the ministry offers (big tiles) ----------
-     image: optional photo for the tile, e.g. "images/books.jpg" */
+     image: optional photo for the tile, e.g. "images/books.jpg"
+     logo: optional logo shown instead of the title */
   resources: [
     { title: "Books & Studies", text: "Books and small-group studies that ground believers in the Word and teach them to live it out every day.", link: "#new-release", cta: "View books", image: "" },
     { title: "School of Ministry", text: "Practical, Scripture-rich training courses for believers and leaders who want to grow in the Word and serve with power.", link: "#contact", cta: "Learn more", image: "" },  // PLACEHOLDER name
     { title: "Meetings & Conferences", text: "From the Faith Café Conference to Healing Today: gatherings where faith is built, the sick are prayed for and lives are changed.", link: "#events", cta: "See schedule", image: "" },
-    { title: "Faith Café Podcast", text: "Honest, faith-building conversations on the Word, prayer and missions. New episodes every week.", link: "#podcast", cta: "Listen", image: "" },
+    { title: "Faith Café Podcast", logo: "images/faith-cafe-logo.png", text: "Honest, faith-building conversations on the Word, prayer and missions. New episodes every week.", link: "#podcast", cta: "Listen", image: "" },
   ],
 
   /* ---------- New book spotlight ---------- */

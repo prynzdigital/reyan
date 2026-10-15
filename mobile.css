@@ -88,7 +88,7 @@ html { -webkit-tap-highlight-color: transparent; }
 
   /* Podcast */
   .podcast-copy { text-align: center; }
-  .podcast-cover { margin-inline: auto; width: 130px; }
+  .podcast-logo img { margin-inline: auto; width: min(240px, 70%); }
   .platforms { justify-content: center; }
 
   /* Events: stacked rows */
