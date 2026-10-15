@@ -1,0 +1,24 @@
+{
+  "name": "Reyan Ministries",
+  "short_name": "Reyan",
+  "description": "Watch live services, sermons and the Living Word podcast. Send prayer requests and partner with the mission.",
+  "id": "./",
+  "start_url": "./?source=app",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f1729",
+  "theme_color": "#0f1729",
+  "categories": ["lifestyle", "education", "music"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Watch Live", "url": "./#live", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Podcast", "url": "./#podcast", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Prayer Request", "url": "./#prayer", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Give", "url": "./#give", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

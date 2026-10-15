@@ -20,6 +20,23 @@ A fast, mobile-friendly website for Reyan's preaching ministry: live YouTube ser
 7. **Contact details & socials** — update `email`, `phone`, `address` and `socials` in `site-data.js`.
 8. **Numbers** — the stats (nations reached, salvations, etc.) are in `index.html` as `data-count="…"`. Replace them with real figures.
 
+## Mobile app
+On phones (screens up to 768px wide) the site switches to an app layout: a bottom tab bar (Home, Live, Sermons, Podcast, More), a "More" sheet, quick-action buttons, swipeable sermon and mission cards, and a podcast mini player docked above the tabs.
+
+It is also an installable app (PWA). Once the site is live on **https**, visitors can install it:
+- **Android / Chrome**: an "Install" banner appears, or use the browser menu → *Install app*.
+- **iPhone / Safari**: tap Share → *Add to Home Screen*.
+
+It then opens full-screen with its own icon and still loads when offline.
+
+| File | What it is |
+|---|---|
+| `mobile.css` | Phone app layout |
+| `app.js` | Tab bar, More sheet, install prompt |
+| `manifest.webmanifest` | App name, colors, icons, home-screen shortcuts |
+| `sw.js` | Offline support. **Change `VERSION` (e.g. `reyan-v2`) each time you publish updates** so installed apps get the new files. |
+| `icons/` | App icons |
+
 ## Preview locally
 ```bash
 python -m http.server 5173
