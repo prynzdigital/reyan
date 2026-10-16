@@ -268,6 +268,8 @@ p { margin: 0 0 1.1em; }
 .conf h3 { font-size: clamp(2.2rem, 3.6vw, 3rem); margin-bottom: .3em; }
 .conf p:not(.kicker) { color: rgba(255,255,255,.75); }
 .conf .btn { margin-top: .4rem; }
+.conf-logo { line-height: 0; margin: .4rem 0 1.2rem; }
+.conf-logo img { width: 150px; height: auto; }
 
 /* ---------- Events ---------- */
 .event-list { max-width: 1000px; margin-inline: auto; border-top: 2px solid var(--black); }

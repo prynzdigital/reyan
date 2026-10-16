@@ -268,8 +268,8 @@
   /* ---------- Signature conferences ---------- */
   $("#signature-conferences").innerHTML = (S.conferences || []).map((c) => `
     <article class="conf reveal">
-      <p class="kicker">Signature conference</p>
-      <h3>${esc(c.name)}</h3>
+      <p class="kicker">${esc(c.kicker || "Signature conference")}</p>
+      ${c.logo ? `<h3 class="conf-logo"><img src="${esc(c.logo)}" alt="${esc(c.name)}" /></h3>` : `<h3>${esc(c.name)}</h3>`}
       <p>${esc(c.text)}</p>
       <a class="btn btn-gold btn-sm" ${linkAttrs(c.link)} data-event="${esc(c.name)}">${esc(c.cta || "Learn more")}</a>
     </article>`).join("");

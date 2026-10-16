@@ -30,14 +30,14 @@ window.SITE = {
      channelId: youtube.com → your channel → About → Share → Copy channel ID (starts with "UC").
      The live player shows the current live stream, or the latest one when offline. */
   youtube: {
-    channelId: "",                              // e.g. "UCxxxxxxxxxxxxxxxxxxxxxx"
-    handle: "@RichardEngmannMinistries",        // PLACEHOLDER — your @handle
+    channelId: "UCBQGyj_QpL6vAyFEwE5TtOw",       // Richard Engmann Ministries
+    handle: "@richardengmannministries",
   },
 
   links: {
     spotify: "https://open.spotify.com/",
     applePodcasts: "https://podcasts.apple.com/",
-    podcastTiktok: "https://www.tiktok.com/",      // PLACEHOLDER — Faith Café Podcast TikTok page
+    podcastTiktok: "https://www.tiktok.com/@richardengmann",
     podcastInstagram: "https://www.instagram.com/", // PLACEHOLDER — Faith Café Podcast Instagram page
     givingLink: "#partner",       // your PayPal / Stripe / giving page
     store: "#resources",          // where books are sold (Amazon, Selar, your shop…)
@@ -45,10 +45,10 @@ window.SITE = {
   },
 
   socials: {
-    youtube: "https://youtube.com/@RichardEngmannMinistries",
+    youtube: "https://www.youtube.com/@richardengmannministries",
     facebook: "https://facebook.com/",
     instagram: "https://instagram.com/",
-    tiktok: "https://tiktok.com/",
+    tiktok: "https://www.tiktok.com/@richardengmann",
     x: "https://x.com/",
   },
 
@@ -106,12 +106,13 @@ window.SITE = {
   ],
 
   /* ---------- Popular videos ----------
-     youtubeId: the part after "v=" in a YouTube link (shows the real thumbnail). */
+     youtubeId: the part after "v=" in a YouTube link (shows the real thumbnail).
+     place: the small line under the title (a date or location). */
   videos: [
-    { title: "Fire on the Altar", place: "Accra, Ghana", youtubeId: "" },        // PLACEHOLDER
-    { title: "The Power of the Name", place: "Kumasi, Ghana", youtubeId: "" },   // PLACEHOLDER
-    { title: "Beautiful Feet", place: "Lagos, Nigeria", youtubeId: "" },        // PLACEHOLDER
-    { title: "Prayer That Moves Heaven", place: "London, UK", youtubeId: "" },   // PLACEHOLDER
+    { title: "The Word Is Medicine", place: "Sep 25, 2026", youtubeId: "-y6oYj-mpXc" },
+    { title: "What Are You Saying?", place: "Jul 31, 2026", youtubeId: "WKa0W3pb9Nc" },
+    { title: "Faith Is Of The Mouth", place: "Jul 13, 2026", youtubeId: "mXVJjDA9-1A" },
+    { title: "Faith Is Not Of The Senses", place: "Jun 2, 2026", youtubeId: "AIaJetKec1w" },
   ],
 
   /* ---------- Podcast ----------
@@ -124,10 +125,11 @@ window.SITE = {
   ],
 
   /* ---------- Signature conferences (shown above the schedule) ----------
-     link: registration or info page; cta: button text. */
+     link: registration or info page; cta: button text.
+     kicker: small label above the name (default "Signature conference"); logo: optional logo image. */
   conferences: [
     { name: "Faith Café Conference", text: "A gathering around the Word where believers sit at the table of faith: worship, teaching and fellowship that leave you strengthened to believe God.", link: "#contact", cta: "Get updates" },
-    { name: "Healing Today", text: "Jesus still heals today. A conference of Bible teaching on divine healing, faith-filled worship and prayer for the sick.", link: "#contact", cta: "Get updates" },
+    { name: "Healing Today", kicker: "Healing service", logo: "images/healing-today-logo.png", text: "Jesus still heals today. A healing service of Bible teaching on divine healing, faith-filled worship and prayer for the sick.", link: "#contact", cta: "Get updates" },
   ],
 
   /* ---------- Schedule ----------
