@@ -175,7 +175,11 @@
 
   /* ---------- Live services ---------- */
   const services = S.services || [];
-  $("#service-times").textContent = services.map((s) => `${DAYS[s.day]}s ${fmtTime(s.time)} — ${s.name}`).join("  ·  ");
+  if (services.length) {
+    $("#service-times").textContent = services.map((s) => `${DAYS[s.day]}s ${fmtTime(s.time)} — ${s.name}`).join("  ·  ");
+  } else {
+    $("#service-times").remove();
+  }
 
   function serviceWindow(s, from) {
     const [h, m] = s.time.split(":").map(Number);

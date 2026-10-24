@@ -99,11 +99,11 @@ window.SITE = {
   ],
 
   /* ---------- Live services ----------
-     day: 0=Sunday … 6=Saturday. time: 24h "HH:MM" (visitor's local time). */
+     Leave empty while there are no regular live services: the Watch Live section
+     then shows no schedule. To add one later, copy the example line without the //.
+     day: 0=Sunday … 6=Saturday. time: 24h "HH:MM". durationMins: how long it runs. */
   services: [
-    { name: "Sunday Service", day: 0, time: "10:00", durationMins: 120 },
-    { name: "Midweek Bible Study", day: 3, time: "18:30", durationMins: 90 },
-    { name: "Friday Prayer Night", day: 5, time: "21:00", durationMins: 120 },
+    // { name: "Sunday Service", day: 0, time: "10:00", durationMins: 120 },
   ],
 
   /* ---------- Popular videos ----------
