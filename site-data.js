@@ -5,7 +5,7 @@
    ========================================================= */
 window.SITE = {
   ministryName: "Richard Engmann Ministries",
-  preacherName: "Pastor Engmann",            // how he is addressed across the site
+  preacherName: "Richard Engmann",            // how he is addressed across the site
   tagline: "The Word. The Spirit. The Nations.",
   email: "",                                      // add the ministry email when ready (hidden until then)
   phone: "+233 54 790 4882",
@@ -55,9 +55,9 @@ window.SITE = {
 
   /* ---------- Biography ---------- */
   bio: [
-    "Pastor Richard Engmann is a preacher, teacher and missionary with one burden: that every person would hear the Gospel of Jesus Christ and discover the life God has made available to them.",
+    "Richard Engmann is a pastor, teacher and missionary with one burden: that every person would hear the Gospel of Jesus Christ and discover the life God has made available to them.",
     "Through Richard Engmann Ministries he leads the Faith Café Conference and Healing Today, Gospel outreaches and leadership training, and teaches believers to live by the Word and walk in the power of the Holy Spirit. His teaching is deep yet simple, rooted in Scripture and practical for everyday life.",
-    "From local churches to open-air crusades, online broadcasts and the Faith Café Podcast, Pastor Engmann is committed to strengthening the Church, raising leaders and reaching the nations.",
+    "From local churches to open-air crusades, online broadcasts and the Faith Café Podcast, Richard Engmann is committed to strengthening the Church, raising leaders and reaching the nations.",
   ],
 
   /* ---------- What the ministry offers (big tiles) ----------
@@ -75,7 +75,7 @@ window.SITE = {
     kicker: "New Release",
     title: "Fire on the Altar",
     subtitle: "Keeping Your Devotion Burning in a Cold World",
-    text: "A practical call back to first love. Drawing from Scripture and years of ministry, Pastor Engmann shows how prayer, the Word and obedience keep the fire of God alive in an ordinary life.",
+    text: "A practical call back to first love. Drawing from Scripture and years of ministry, Richard Engmann shows how prayer, the Word and obedience keep the fire of God alive in an ordinary life.",
     cta: "Get a copy",
     link: "#contact",
     cover: "",                                    // optional cover image, e.g. "images/book.jpg"
@@ -123,6 +123,16 @@ window.SITE = {
     { title: "Missions Is Not Optional", date: "2026-10-02", length: "28 min", audio: "" },
     { title: "When Prayers Seem Unanswered", date: "2026-09-25", length: "35 min", audio: "" },
     { title: "Raising Godly Leaders", date: "2026-09-18", length: "41 min", audio: "" },
+  ],
+
+  /* ---------- Testimonies ----------
+     Add real testimonies here (with the person's permission). Each one becomes a card.
+     Until there are any, the section shows only the "Share your testimony" invitation.
+     The two lines below are EXAMPLES of the format only (switched off with //).
+     Copy the pattern for each real testimony, without the // at the start. */
+  testimonies: [
+    // { text: "Write the testimony here in the person's own words.", name: "First name + initial", place: "Town" },
+    // { text: "Another testimony…", name: "Name", place: "Town" },
   ],
 
   /* ---------- Signature conferences (shown above the schedule) ----------

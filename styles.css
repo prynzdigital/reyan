@@ -132,7 +132,6 @@ p { margin: 0 0 1.1em; }
 .bio-placeholder { height: 34%; width: auto; opacity: .9; }
 .bio-copy h2 { margin-bottom: .6em; }
 #bio-text p { color: #3b3b3b; font-size: 1.05rem; }
-.bio-copy .btn { margin-top: 1rem; }
 
 /* ---------- Resource tiles ---------- */
 .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -263,6 +262,16 @@ p { margin: 0 0 1.1em; }
 .icon-btn.big svg { fill: var(--black); width: 22px; height: 22px; }
 .player-progress { display: flex; align-items: center; gap: .8rem; margin-top: 1rem; font-size: .75rem; color: rgba(255,255,255,.6); font-variant-numeric: tabular-nums; }
 .player-progress input { flex: 1; accent-color: var(--gold); }
+
+/* ---------- Testimonies ---------- */
+.testimony-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-bottom: 3rem; }
+.testimony { margin: 0; padding: 2rem 1.8rem; background: var(--black-2); border: 1px solid rgba(255,255,255,.1); border-top: 3px solid var(--gold); display: flex; flex-direction: column; }
+.t-mark { font: 400 4.5rem/.6 var(--display); color: var(--gold); height: 2rem; }
+.testimony blockquote { margin: 0 0 1.4rem; color: rgba(255,255,255,.88); font-size: 1.02rem; line-height: 1.7; flex: 1; }
+.testimony figcaption strong { display: block; font: 400 1.4rem/1 var(--display); letter-spacing: .04em; text-transform: uppercase; color: var(--white); }
+.testimony figcaption span { font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+.testimony-cta { max-width: 640px; margin: 0 auto; text-align: center; padding: 2.2rem 1.6rem; border: 1px dashed rgba(201,162,74,.5); }
+.testimony-cta p { color: rgba(255,255,255,.8); font-size: 1.05rem; }
 
 /* ---------- Signature conferences ---------- */
 .signature { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 1000px; margin: 0 auto 3.5rem; }

@@ -274,6 +274,20 @@
   });
   seek.addEventListener("input", () => { if (audio.duration) audio.currentTime = (seek.value / 100) * audio.duration; });
 
+  /* ---------- Testimonies ---------- */
+  const testimonies = (S.testimonies || []).filter((t) => t && t.text);
+  const tGrid = $("#testimony-grid");
+  if (testimonies.length) {
+    tGrid.innerHTML = testimonies.map((t) => `
+      <figure class="testimony reveal">
+        <span class="t-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote>${esc(t.text)}</blockquote>
+        <figcaption><strong>${esc(t.name || "")}</strong>${t.place ? `<span>${esc(t.place)}</span>` : ""}</figcaption>
+      </figure>`).join("");
+  } else {
+    tGrid.remove();
+  }
+
   /* ---------- Signature conferences ---------- */
   $("#signature-conferences").innerHTML = (S.conferences || []).map((c) => `
     <article class="conf reveal">
@@ -363,7 +377,9 @@
   }
   wireForm($("#contact-form"), {
     subject: (d) => `Website: ${d.subject}`,
-    okMsg: (d) => d.subject === "Prayer request" ? "Thank you. Our prayer team is standing with you." : "Thank you! We'll get back to you within two working days.",
+    okMsg: (d) => d.subject === "Prayer request" ? "Thank you. Our prayer team is standing with you."
+      : d.subject === "Testimony" ? "Thank you for sharing what God has done! To Him be the glory."
+      : "Thank you! We'll get back to you within two working days.",
   });
   wireForm($("#newsletter-form"), { subject: "Newsletter subscription", okMsg: () => "You're subscribed. God bless you!" });
 

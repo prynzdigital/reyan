@@ -73,6 +73,12 @@ html { -webkit-tap-highlight-color: transparent; }
   .amounts { grid-template-columns: repeat(3, 1fr); }
   .amt-custom { grid-column: span 3; }
 
+  /* Testimonies: swipeable cards */
+  .testimony-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; gap: 12px; margin: 0 -20px 2rem; padding: 0 20px; scroll-padding-inline: 20px; }
+  .testimony-grid::-webkit-scrollbar { display: none; }
+  .testimony { flex: 0 0 86%; scroll-snap-align: start; }
+  .testimony-grid .reveal { opacity: 1; transform: none; }
+
   /* Videos: swipeable */
   .videos { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; gap: 14px; margin-inline: -20px; padding: 0 20px; scroll-padding-inline: 20px; }
   .videos::-webkit-scrollbar { display: none; }

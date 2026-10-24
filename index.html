@@ -16,7 +16,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="RE Ministries" />
+  <meta name="apple-mobile-web-app-title" content="REM" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -63,7 +63,7 @@
         <p class="hero-tagline" data-bind="tagline">The Word. The Spirit. The Nations.</p>
         <div class="hero-actions">
           <a href="#live" class="btn btn-gold">Watch Live</a>
-          <a href="#contact" class="btn btn-outline-light" data-subject="Speaking invitation">Invite <span data-bind="preacherName">Pastor Engmann</span></a>
+          <a href="#contact" class="btn btn-outline-light" data-subject="Speaking invitation">Invite <span data-bind="preacherName">Richard Engmann</span></a>
         </div>
         <nav class="quick-actions" aria-label="Quick actions">
           <a href="#live" class="qa"><span class="qa-ico"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>Watch</a>
@@ -83,9 +83,8 @@
         </div>
         <div class="bio-copy reveal">
           <p class="kicker">Biography</p>
-          <h2>About <span data-bind="preacherName">Pastor Engmann</span></h2>
+          <h2>About <span data-bind="preacherName">Richard Engmann</span></h2>
           <div id="bio-text"></div>
-          <a href="#contact" class="btn btn-dark" data-subject="Speaking invitation">Invite <span data-bind="preacherName">Pastor Engmann</span> to minister</a>
         </div>
       </div>
     </section>
@@ -109,7 +108,7 @@
           <div class="book-cover">
             <img src="images/logo-mark-white.png" alt="" class="book-mark" />
             <span class="book-title" id="book-title">Fire on the Altar</span>
-            <span class="book-author" data-bind="preacherName">Pastor Engmann</span>
+            <span class="book-author" data-bind="preacherName">Richard Engmann</span>
           </div>
         </div>
         <div class="release-copy reveal">
@@ -201,7 +200,7 @@
       <div class="container podcast-grid">
         <div class="podcast-copy reveal">
           <h2 class="podcast-logo"><img src="images/faith-cafe-logo.png" alt="Faith Café Podcast" width="891" height="725" /></h2>
-          <p>Real stories, honest conversations and fresh insight from the Word to help you grow. Join <span data-bind="preacherName">Pastor Engmann</span> for each new episode.</p>
+          <p>Real stories, honest conversations and fresh insight from the Word to help you grow. Join <span data-bind="preacherName">Richard Engmann</span> for each new episode.</p>
           <div class="platforms">
             <a data-href="youtubeChannel" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm">YouTube</a>
             <a data-href="podcastTiktok" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm">TikTok</a>
@@ -244,10 +243,26 @@
       </div>
     </section>
 
+    <!-- ============ TESTIMONIES ============ -->
+    <section class="section section-black testimonies" id="testimonies">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">Testimonies</p>
+          <h2>What God is doing</h2>
+          <p>Lives touched through the Word, prayer and the move of the Spirit.</p>
+        </div>
+        <div class="testimony-grid" id="testimony-grid"></div>
+        <div class="testimony-cta reveal">
+          <p>Has God done something in your life through this ministry? We would love to hear it and give Him the glory.</p>
+          <a href="#contact" class="btn btn-gold" data-subject="Testimony">Share your testimony</a>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ INVITE ============ -->
     <section class="invite" id="invite">
       <div class="container invite-inner reveal">
-        <h2>Invite <span data-bind="preacherName">Pastor Engmann</span></h2>
+        <h2>Invite <span data-bind="preacherName">Richard Engmann</span></h2>
         <p>Bring the Word and the move of the Spirit to your church, conference or city.</p>
         <a href="#contact" class="btn btn-dark" data-subject="Speaking invitation">Send an invitation</a>
       </div>
@@ -277,6 +292,7 @@
             <select name="subject" id="contact-subject">
               <option>Speaking invitation</option>
               <option>Prayer request</option>
+              <option>Testimony</option>
               <option>Partnership</option>
               <option>Books &amp; resources</option>
               <option>School of Ministry</option>
@@ -312,7 +328,7 @@
         <span class="footer-logo-name" data-bind="ministryName">Richard Engmann Ministries</span>
       </a>
       <nav class="footer-nav" aria-label="Footer">
-        <a href="#about">About</a><a href="#resources">Resources</a><a href="#live">Watch Live</a><a href="#podcast">Podcast</a><a href="#events">Events</a><a href="#partner">Partner</a><a href="#contact">Contact</a>
+        <a href="#about">About</a><a href="#resources">Resources</a><a href="#live">Watch Live</a><a href="#podcast">Podcast</a><a href="#events">Events</a><a href="#testimonies">Testimonies</a><a href="#partner">Partner</a><a href="#contact">Contact</a>
       </nav>
       <div class="socials footer-socials" id="footer-socials"></div>
       <p class="copyright">© <span id="year"></span> <span data-bind="ministryName">Richard Engmann Ministries</span>. All rights reserved.</p>
@@ -341,6 +357,7 @@
       <a href="#videos" class="tile"><span class="qa-ico"><svg viewBox="0 0 24 24"><path d="M4 6H2v14a2 2 0 0 0 2 2h14v-2H4zm16-4H8a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-8 12.5v-9l6 4.5z"/></svg></span>Videos</a>
       <a href="#partner" class="tile"><span class="qa-ico gold"><svg viewBox="0 0 24 24"><path d="M20 7h-2.2A3 3 0 0 0 12 3.8 3 3 0 0 0 6.2 7H4a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8h1a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zM15 5a1 1 0 1 1 0 2h-2a2 2 0 0 1 2-2zM9 5a2 2 0 0 1 2 2H9a1 1 0 1 1 0-2zm2 15H7v-8h4zm0-10H5V9h6zm6 10h-4v-8h4zm2-10h-6V9h6z"/></svg></span>Partner</a>
       <a href="#contact" class="tile" data-subject="Prayer request"><span class="qa-ico"><svg viewBox="0 0 24 24"><path d="M12 21.4 10.6 20C5.4 15.4 2 12.3 2 8.5 2 5.4 4.4 3 7.5 3c1.7 0 3.4.8 4.5 2.1A6 6 0 0 1 16.5 3C19.6 3 22 5.4 22 8.5c0 3.8-3.4 6.9-8.6 11.5z"/></svg></span>Prayer</a>
+      <a href="#testimonies" class="tile"><span class="qa-ico"><svg viewBox="0 0 24 24"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM9.5 12.6 8 14l-1-1 .9-1.6A2 2 0 1 1 9.5 12.6zm6 0L14 14l-1-1 .9-1.6a2 2 0 1 1 1.6.2z"/></svg></span>Testimonies</a>
       <a href="#contact" class="tile" data-subject="Speaking invitation"><span class="qa-ico"><svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zm7 9a7 7 0 0 1-14 0H3a9 9 0 0 0 8 8.94V23h2v-3.06A9 9 0 0 0 21 11z"/></svg></span>Invite</a>
       <a href="#contact" class="tile"><span class="qa-ico"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg></span>Contact</a>
       <a href="#newsletter" class="tile"><span class="qa-ico"><svg viewBox="0 0 24 24"><path d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6v-5c0-3.1-1.6-5.6-4.5-6.3V4a1.5 1.5 0 0 0-3 0v.7C7.6 5.4 6 7.9 6 11v5l-2 2v1h16v-1z"/></svg></span>Newsletter</a>
@@ -351,7 +368,7 @@
 
   <div class="install-banner" id="install-banner" hidden>
     <img src="icons/icon-192.png" alt="" width="44" height="44" />
-    <div class="ib-text"><strong>Get the RE Ministries app</strong><small id="install-hint">Add it to your home screen for quick access.</small></div>
+    <div class="ib-text"><strong>Get the REM app</strong><small id="install-hint">Add it to your home screen for quick access.</small></div>
     <button class="btn btn-gold btn-sm" id="install-btn">Install</button>
     <button class="ib-close" id="install-close" aria-label="Dismiss">✕</button>
   </div>
