@@ -1,6 +1,6 @@
 /* Service worker: lets the installed app open offline and load instantly.
    Files load from the network first (always fresh) and fall back to the cache offline. */
-const VERSION = "rem-v10";
+const VERSION = "rem-v11";
 const ASSETS = [
   "./",
   "index.html",

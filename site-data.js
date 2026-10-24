@@ -35,8 +35,8 @@ window.SITE = {
   },
 
   links: {
-    spotify: "https://open.spotify.com/",
-    applePodcasts: "https://podcasts.apple.com/",
+    spotify: "",        // add the Faith Café Spotify link when ready (shows "Coming soon" until then)
+    applePodcasts: "",  // add the Faith Café Apple Podcasts link when ready
     podcastTiktok: "https://www.tiktok.com/@richardengmann",
     podcastInstagram: "https://www.instagram.com/", // PLACEHOLDER — Faith Café Podcast Instagram page
     givingLink: "#partner",       // your PayPal / Stripe / giving page

@@ -241,6 +241,9 @@ p { margin: 0 0 1.1em; }
 .tile-logo img { width: min(220px, 70%); height: auto; margin-inline: auto; }
 .podcast-copy > p:not(.kicker) { color: rgba(255,255,255,.75); }
 .platforms { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.4rem; }
+.platforms-more { margin-top: .6rem; }
+.btn.is-soon { opacity: .45; border-style: dashed; cursor: default; pointer-events: none; }
+.btn.is-soon small { font-size: .6rem; letter-spacing: .12em; opacity: .85; }
 .episode-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid rgba(255,255,255,.12); }
 .episode { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; padding: 1.15rem 0; border-bottom: 1px solid rgba(255,255,255,.12); }
 .episode h4 { margin: 0; font: 600 1rem/1.4 var(--sans); }

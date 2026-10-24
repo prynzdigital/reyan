@@ -57,6 +57,13 @@
     const v = hrefs[el.dataset.href];
     if (v) el.href = v;
     if (v && !isExternal(v)) { el.removeAttribute("target"); el.removeAttribute("rel"); }
+    // A platform without a link yet shows as "coming soon" instead of a dead button.
+    if (!v && el.hasAttribute("data-soon")) {
+      el.removeAttribute("href");
+      el.setAttribute("aria-disabled", "true");
+      el.classList.add("is-soon");
+      el.insertAdjacentHTML("beforeend", ' <small>Coming soon</small>');
+    }
   });
   $("#year").textContent = new Date().getFullYear();
 
