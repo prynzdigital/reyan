@@ -7,9 +7,10 @@ window.SITE = {
   ministryName: "Richard Engmann Ministries",
   preacherName: "Pastor Engmann",            // how he is addressed across the site
   tagline: "The Word. The Spirit. The Nations.",
-  email: "info@richardengmannministries.org",   // PLACEHOLDER
-  phone: "+000 000 0000",                         // PLACEHOLDER
-  address: "P.O. Box 000, Your City",             // PLACEHOLDER
+  email: "",                                      // add the ministry email when ready (hidden until then)
+  phone: "+233 54 790 4882",
+  whatsapp: "233547904882",                       // number for WhatsApp messages, digits only with country code
+  address: "P.O. Box MC 1183, Market Circle, Takoradi",
 
   /* ---------- Photos ----------
      Put photos in the "images" folder and type the file name here.
@@ -144,6 +145,6 @@ window.SITE = {
 
   /* ---------- Forms ----------
      Create a free form at https://formspree.io and paste the endpoint here
-     (e.g. "https://formspree.io/f/abcdwxyz"). Leave empty and forms open the visitor's email app. */
+     (e.g. "https://formspree.io/f/abcdwxyz"). Leave empty and forms open the visitor's email app (or WhatsApp if no email is set). */
   formEndpoint: "",
 };

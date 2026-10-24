@@ -66,6 +66,8 @@
     }
   });
   $("#year").textContent = new Date().getFullYear();
+  // No email yet: hide the email line instead of showing an empty one.
+  if (!S.email) $$('[data-bind="email"]').forEach((el) => el.closest("li")?.remove());
 
   const socialsHTML = Object.entries(S.socials || {})
     .filter(([k, url]) => url && SOCIAL_ICONS[k])
@@ -326,6 +328,7 @@
       const data = Object.fromEntries(new FormData(form));
       const title = typeof subj === "function" ? subj(data) : subj;
       const btn = $("button[type=submit]", form);
+      let viaWhatsApp = false;
       btn.disabled = true;
       try {
         if (S.formEndpoint) {
@@ -337,14 +340,21 @@
           if (!res.ok) throw new Error("send failed");
         } else {
           const body = Object.entries(data).map(([k, v]) => `${k}: ${v}`).join("\n");
-          window.location.href = `mailto:${S.email}?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+          if (S.email) {
+            window.location.href = `mailto:${S.email}?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+          } else if (S.whatsapp) {
+            viaWhatsApp = true;
+            window.open(`https://wa.me/${S.whatsapp}?text=${encodeURIComponent(`${title}\n\n${body}`)}`, "_blank", "noopener");
+          } else {
+            throw new Error("no destination");
+          }
         }
         form.reset();
         status.className = "form-status ok";
-        status.textContent = okMsg(data);
+        status.textContent = viaWhatsApp ? "WhatsApp is opening with your message. Tap Send to deliver it." : okMsg(data);
       } catch {
         status.className = "form-status err";
-        status.textContent = `Sorry, something went wrong. Please email us at ${S.email}.`;
+        status.textContent = S.email ? `Sorry, something went wrong. Please email us at ${S.email}.` : `Sorry, something went wrong. Please call us on ${S.phone}.`;
       } finally {
         btn.disabled = false;
       }
