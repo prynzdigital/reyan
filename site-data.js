@@ -7,9 +7,10 @@ window.SITE = {
   ministryName: "Richard Engmann Ministries",
   preacherName: "Richard Engmann",            // how he is addressed across the site
   tagline: "The Word. The Spirit. The Nations.",
-  email: "",                                      // add the ministry email when ready (hidden until then)
+  email: "richardengmann@outlook.com",
   phone: "+233 54 790 4882",
   whatsapp: "233547904882",                       // number for WhatsApp messages, digits only with country code
+  formsTo: "whatsapp",                            // where contact/prayer forms send: "whatsapp" or "email"
   address: "P.O. Box MC 1183, Market Circle, Takoradi",
 
   /* ---------- Photos ----------

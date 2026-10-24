@@ -358,7 +358,8 @@
           if (!res.ok) throw new Error("send failed");
         } else {
           const body = Object.entries(data).map(([k, v]) => `${k}: ${v}`).join("\n");
-          if (S.email) {
+          const useEmail = S.email && (S.formsTo === "email" || !S.whatsapp);
+          if (useEmail) {
             window.location.href = `mailto:${S.email}?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
           } else if (S.whatsapp) {
             viaWhatsApp = true;
