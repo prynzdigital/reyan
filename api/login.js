@@ -4,7 +4,7 @@
 import { handler, send, readJson, methodNotAllowed } from "./_lib/http.js";
 import { isAdmin, verifyPassword, createSession, clearSession, tooManyAttempts, recordFailure, clearFailures } from "./_lib/auth.js";
 import { storeMode } from "./_lib/store.js";
-import { mediaMode } from "./_lib/media.js";
+import { mediaMode, storageSettingNames } from "./_lib/media.js";
 
 export default handler(async (req, res) => {
   const setup = {
@@ -15,7 +15,12 @@ export default handler(async (req, res) => {
 
   if (req.method === "GET") {
     const signedIn = storeMode === "none" ? false : await isAdmin(req);
-    return send(res, 200, { signedIn, ...setup, localDevPassword: storeMode === "local" && !process.env.ADMIN_PASSWORD });
+    return send(res, 200, {
+      signedIn,
+      ...setup,
+      localDevPassword: storeMode === "local" && !process.env.ADMIN_PASSWORD,
+      ...(signedIn ? { settingNames: storageSettingNames() } : {}),
+    });
   }
 
   if (req.method === "POST") {

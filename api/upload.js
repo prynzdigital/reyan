@@ -4,7 +4,7 @@
 // Locally the file body is posted here and saved in ./uploads.
 import { handler, send, readJson, readRaw, query, methodNotAllowed } from "./_lib/http.js";
 import { requireAdmin } from "./_lib/auth.js";
-import { mediaMode, ALLOWED_TYPES, MAX_BYTES, saveLocal } from "./_lib/media.js";
+import { mediaMode, blobToken, ALLOWED_TYPES, MAX_BYTES, saveLocal } from "./_lib/media.js";
 
 const typeAllowed = (t) => ALLOWED_TYPES.some((a) => (a.endsWith("/*") ? t.startsWith(a.slice(0, -1)) : t === a));
 
@@ -20,6 +20,7 @@ export default handler(async (req, res) => {
     const result = await handleUpload({
       body,
       request: req,
+      token: blobToken,
       onBeforeGenerateToken: async () => ({
         allowedContentTypes: ALLOWED_TYPES,
         maximumSizeInBytes: MAX_BYTES,

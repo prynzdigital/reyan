@@ -1111,6 +1111,10 @@ async function viewSettings() {
     : me.storeMode === "local" ? row(true, "local", "Local test database (this computer only)") : row(false, "off", "Database not connected");
   const media = me.mediaMode === "blob" ? row(true, "", "File storage connected (uploads)")
     : me.mediaMode === "local" ? row(true, "local", "Local test file storage (this computer only)") : row(false, "off", "File storage not connected — uploads are off");
+  const storageHelp = me.mediaMode === "none" ? h("div", { class: "help", style: { marginTop: ".8rem" } },
+    "To fix: in Vercel open Storage → your Blob store → Connect to this project (tick Production), then Deployments → Redeploy. ",
+    "Storage settings the server can see right now: ",
+    h("strong", {}, (me.settingNames || []).join(", ") || "none")) : null;
 
   const cur = h("input", { type: "password", autocomplete: "current-password", id: "pw-cur" });
   const nxt = h("input", { type: "password", autocomplete: "new-password", id: "pw-new", minlength: 8 });
@@ -1142,7 +1146,7 @@ async function viewSettings() {
   } });
 
   return h("div", {},
-    h("div", { class: "card" }, h("div", { class: "card-head" }, h("div", {}, h("h3", {}, "Setup status"), h("p", {}, "What's connected on the server"))), store, media),
+    h("div", { class: "card" }, h("div", { class: "card-head" }, h("div", {}, h("h3", {}, "Setup status"), h("p", {}, "What's connected on the server"))), store, media, storageHelp),
     h("div", { class: "card" }, h("div", { class: "card-head" }, h("div", {}, h("h3", {}, "Change password"), h("p", {}, "Use a strong password only you know."))), pwForm),
     h("div", { class: "card" }, h("div", { class: "card-head" }, h("div", {}, h("h3", {}, "Undo & backups"), h("p", {}, "Go back to the version before your last publish, or keep a copy of everything."))),
       h("div", { class: "quick" },

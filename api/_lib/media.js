@@ -3,7 +3,22 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 
-export const mediaMode = process.env.BLOB_READ_WRITE_TOKEN ? "blob" : process.env.VERCEL ? "none" : "local";
+// Vercel adds BLOB_READ_WRITE_TOKEN when Blob storage is connected. If a custom
+// "environment variable prefix" was chosen, the name differs (e.g. MEDIA_READ_WRITE_TOKEN),
+// so also accept any *_READ_WRITE_TOKEN whose value is a Vercel Blob token.
+function findBlobToken() {
+  if (process.env.BLOB_READ_WRITE_TOKEN) return process.env.BLOB_READ_WRITE_TOKEN;
+  for (const [name, value] of Object.entries(process.env)) {
+    if (/READ_WRITE_TOKEN$/.test(name) && String(value).startsWith("vercel_blob_rw_")) return value;
+  }
+  return "";
+}
+export const blobToken = findBlobToken();
+export const mediaMode = blobToken ? "blob" : process.env.VERCEL ? "none" : "local";
+
+// Names (never values) of storage-related settings the server can see — shown in the admin to help setup.
+export const storageSettingNames = () =>
+  Object.keys(process.env).filter((n) => /BLOB|READ_WRITE_TOKEN|KV_REST|UPSTASH/i.test(n)).sort();
 
 export const ALLOWED_TYPES = ["image/*", "audio/*", "video/*", "application/pdf"];
 export const MAX_BYTES = 500 * 1024 * 1024; // 500 MB per file
@@ -31,7 +46,7 @@ export async function listMedia() {
     const out = [];
     let cursor;
     do {
-      const page = await list({ cursor, limit: 1000 });
+      const page = await list({ cursor, limit: 1000, token: blobToken });
       out.push(...page.blobs.map((b) => ({ url: b.url, pathname: b.pathname, size: b.size, uploadedAt: b.uploadedAt })));
       cursor = page.hasMore ? page.cursor : undefined;
     } while (cursor);
@@ -61,7 +76,7 @@ export async function listMedia() {
 export async function deleteMedia(url) {
   if (mediaMode === "blob") {
     const { del } = await import("@vercel/blob");
-    await del(url);
+    await del(url, { token: blobToken });
     return;
   }
   if (mediaMode === "local") {
