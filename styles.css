@@ -263,6 +263,34 @@ p { margin: 0 0 1.1em; }
 .player-progress { display: flex; align-items: center; gap: .8rem; margin-top: 1rem; font-size: .75rem; color: rgba(255,255,255,.6); font-variant-numeric: tabular-nums; }
 .player-progress input { flex: 1; accent-color: var(--gold); }
 
+/* ---------- Free eBooks ---------- */
+.ebooks { background: var(--white); }
+.ebook-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 22px; }
+.ebook { display: grid; grid-template-columns: 130px 1fr; gap: 1.4rem; align-items: start; padding: 1.4rem; border: 1px solid var(--line); background: var(--white); }
+.ebook-cover { aspect-ratio: 2/3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .7rem; padding: .8rem; text-align: center; color: var(--white); background: radial-gradient(ellipse at 50% 15%, rgba(227,194,116,.35), transparent 60%), linear-gradient(160deg, #1b1b1b, #000); background-size: cover; background-position: center; box-shadow: 6px 8px 20px -8px rgba(0,0,0,.5); }
+.ebook-cover img { width: 18px; }
+.ebook-cover span { font: 400 1.05rem/1 var(--display); letter-spacing: .04em; text-transform: uppercase; }
+.ebook-body h3 { font-size: 1.7rem; margin-bottom: .2em; }
+.ebook-sub { font-weight: 700; font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; margin-bottom: .6rem; }
+.ebook-body p { color: #444; font-size: .95rem; margin-bottom: .6rem; }
+.ebook-details { font-size: .75rem !important; letter-spacing: .14em; text-transform: uppercase; color: var(--muted) !important; }
+.ebook-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .8rem; }
+
+/* ---------- Music ---------- */
+.music { background: var(--off); }
+.music-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px; }
+.release-card { background: var(--white); padding: 1rem 1rem 1.3rem; border: 1px solid var(--line); }
+.release-art { aspect-ratio: 1; display: grid; place-items: center; background: radial-gradient(circle at 50% 30%, rgba(227,194,116,.35), transparent 60%), #111; background-size: cover; background-position: center; margin-bottom: 1rem; }
+.release-art img { width: 34px; }
+.release-card h3 { font-size: 1.6rem; margin: 0 0 .1em; }
+.release-meta { font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: .9rem; }
+.release-links { display: flex; flex-wrap: wrap; gap: .45rem; }
+.release-links .btn { padding: .6rem .8rem; font-size: .66rem; }
+
+/* "Coming soon" card shown while a section has nothing yet */
+.soon-card { max-width: 620px; margin: 0 auto; text-align: center; padding: 2.4rem 1.6rem; border: 1px dashed var(--gold-deep); background: var(--white); }
+.soon-card h3 { font-size: 2rem; }
+.soon-card p { color: var(--muted); }
 /* ---------- Testimonies ---------- */
 .testimony-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-bottom: 3rem; }
 .testimony { margin: 0; padding: 2rem 1.8rem; background: var(--black-2); border: 1px solid rgba(255,255,255,.1); border-top: 3px solid var(--gold); display: flex; flex-direction: column; }

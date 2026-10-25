@@ -73,6 +73,16 @@ html { -webkit-tap-highlight-color: transparent; }
   .amounts { grid-template-columns: repeat(3, 1fr); }
   .amt-custom { grid-column: span 3; }
 
+  /* eBooks & music */
+  .ebook-grid { grid-template-columns: 1fr; }
+  .ebook { grid-template-columns: 96px 1fr; gap: 1rem; padding: 1rem; }
+  .ebook-body h3 { font-size: 1.45rem; }
+  .music-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; gap: 12px; margin-inline: -20px; padding: 0 20px 4px; scroll-padding-inline: 20px; }
+  .music-grid::-webkit-scrollbar { display: none; }
+  .release-card { flex: 0 0 78%; scroll-snap-align: start; }
+  .music-grid .reveal { opacity: 1; transform: none; }
+  .music-grid .soon-card { flex: 1 0 100%; }
+
   /* Testimonies: swipeable cards */
   .testimony-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; gap: 12px; margin: 0 -20px 2rem; padding: 0 20px; scroll-padding-inline: 20px; }
   .testimony-grid::-webkit-scrollbar { display: none; }

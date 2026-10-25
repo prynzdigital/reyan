@@ -1,6 +1,6 @@
 /* Service worker: lets the installed app open offline and load instantly.
    Files load from the network first (always fresh) and fall back to the cache offline. */
-const VERSION = "rem-v16";
+const VERSION = "rem-v17";
 const ASSETS = [
   "./",
   "index.html",
@@ -33,6 +33,8 @@ self.addEventListener("fetch", (e) => {
   const url = new URL(req.url);
   // Only handle our own files; YouTube, fonts, audio etc. go straight to the network.
   if (req.method !== "GET" || url.origin !== self.location.origin) return;
+  // Big downloads (PDF books, audio) go straight to the network and are not stored offline.
+  if (/\.(pdf|mp3|m4a|wav|zip)$/i.test(url.pathname)) return;
 
   // Network first so updates show immediately; cached copy when offline.
   // cache: "no-cache" asks the server every time, so a new upload shows up straight away.

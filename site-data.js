@@ -82,6 +82,15 @@ window.SITE = {
     cover: "",                                    // optional cover image, e.g. "images/book.jpg"
   },
 
+  /* ---------- Free eBooks (PDF downloads) ----------
+     1. Put the PDF in the "downloads" folder, e.g. downloads/fire-on-the-altar.pdf
+     2. Add a line below (copy the example without the // at the start).
+     cover: optional cover image, e.g. "images/ebook-cover.jpg" (portrait, 2:3)
+     details: small line under the title, e.g. "PDF · 64 pages · 2 MB" */
+  ebooks: [
+    // { title: "Book title", subtitle: "Short subtitle", text: "One or two sentences about the book.", file: "downloads/book-title.pdf", cover: "", details: "PDF · 64 pages" },
+  ],
+
   /* ---------- Partner program ---------- */
   partner: {
     title: "Partner with the mission",
@@ -124,6 +133,15 @@ window.SITE = {
     { title: "Missions Is Not Optional", date: "2026-10-02", length: "28 min", audio: "" },
     { title: "When Prayers Seem Unanswered", date: "2026-09-25", length: "35 min", audio: "" },
     { title: "Raising Godly Leaders", date: "2026-09-18", length: "41 min", audio: "" },
+  ],
+
+  /* ---------- Music ----------
+     Each release becomes a card with buttons for the platforms you fill in.
+     Spotify and Apple Music always show ("Coming soon" until their link is added);
+     the others only appear when they have a link.
+     cover: square artwork, e.g. "images/music/song-name.jpg" */
+  music: [
+    // { title: "Song title", type: "Single", year: "2026", cover: "", spotify: "", appleMusic: "", youtubeMusic: "", audiomack: "", boomplay: "" },
   ],
 
   /* ---------- Testimonies ----------

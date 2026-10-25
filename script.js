@@ -278,6 +278,56 @@
   });
   seek.addEventListener("input", () => { if (audio.duration) audio.currentTime = (seek.value / 100) * audio.duration; });
 
+  /* ---------- Free eBooks ---------- */
+  const ebooks = (S.ebooks || []).filter((b) => b && b.title && b.file);
+  const fileName = (path) => path.split("/").pop();
+  $("#ebook-grid").innerHTML = ebooks.length ? ebooks.map((b) => `
+    <article class="ebook reveal">
+      <div class="ebook-cover${b.cover ? " has-photo" : ""}"${b.cover ? ` style="background-image:url('${encodeURI(b.cover)}')"` : ""}>
+        ${b.cover ? "" : `<img src="images/logo-mark-white.png" alt="" /><span>${esc(b.title)}</span>`}
+      </div>
+      <div class="ebook-body">
+        <h3>${esc(b.title)}</h3>
+        ${b.subtitle ? `<p class="ebook-sub">${esc(b.subtitle)}</p>` : ""}
+        ${b.text ? `<p>${esc(b.text)}</p>` : ""}
+        ${b.details ? `<p class="ebook-details">${esc(b.details)}</p>` : ""}
+        <div class="ebook-actions">
+          <a class="btn btn-dark btn-sm" href="${esc(b.file)}" download="${esc(fileName(b.file))}">Download PDF</a>
+          <a class="btn btn-outline btn-sm" href="${esc(b.file)}" target="_blank" rel="noopener">Read online</a>
+        </div>
+      </div>
+    </article>`).join("") : `
+    <div class="soon-card reveal">
+      <h3>Free eBooks are coming soon</h3>
+      <p>Subscribe to the newsletter and we'll let you know when the first one is ready to download.</p>
+      <a href="#newsletter" class="btn btn-dark btn-sm">Get notified</a>
+    </div>`;
+
+  /* ---------- Music ---------- */
+  const PLATFORMS = [
+    ["spotify", "Spotify", true], ["appleMusic", "Apple Music", true],
+    ["youtubeMusic", "YouTube Music"], ["audiomack", "Audiomack"], ["boomplay", "Boomplay"],
+  ];
+  const releases = (S.music || []).filter((m) => m && m.title);
+  $("#music-grid").innerHTML = releases.length ? releases.map((m) => `
+    <article class="release-card reveal">
+      <div class="release-art${m.cover ? " has-photo" : ""}"${m.cover ? ` style="background-image:url('${encodeURI(m.cover)}')"` : ""}>
+        ${m.cover ? "" : `<img src="images/logo-mark-white.png" alt="" />`}
+      </div>
+      <h3>${esc(m.title)}</h3>
+      <p class="release-meta">${esc([m.type, m.year].filter(Boolean).join(" · "))}</p>
+      <div class="release-links">
+        ${PLATFORMS.filter(([key, , always]) => m[key] || always).map(([key, label]) => m[key]
+          ? `<a class="btn btn-outline btn-sm" href="${esc(m[key])}" target="_blank" rel="noopener">${label}</a>`
+          : `<span class="btn btn-outline btn-sm is-soon" aria-disabled="true">${label} <small>Coming soon</small></span>`).join("")}
+      </div>
+    </article>`).join("") : `
+    <div class="soon-card reveal">
+      <h3>New music is on the way</h3>
+      <p>Songs will be available to stream and download on Spotify and Apple Music. Subscribe to hear first when they're out.</p>
+      <a href="#newsletter" class="btn btn-dark btn-sm">Get notified</a>
+    </div>`;
+
   /* ---------- Testimonies ---------- */
   const testimonies = (S.testimonies || []).filter((t) => t && t.text);
   const tGrid = $("#testimony-grid");
