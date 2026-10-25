@@ -784,8 +784,13 @@ async function uploadFile(file, onProgress = () => {}) {
   const mode = state.me?.mediaMode;
   if (file.size > 500 * 1024 * 1024) throw new Error("That file is larger than 500 MB. Please compress it first.");
   if (mode === "blob") {
-    const { upload } = await import(BLOB_CLIENT);
-    const res = await upload(`${folderFor(file.type)}/${cleanName(file.name)}`, file, {
+    const lib = await import(BLOB_CLIENT);
+    // Newer Vercel setup (no read-write key): presigned upload with a unique file name.
+    const presigned = state.me?.blobAuth === "oidc";
+    const name = cleanName(file.name);
+    const unique = presigned ? name.replace(/(\.[a-z0-9]+)?$/, (ext) => `-${Date.now().toString(36)}${ext}`) : name;
+    const send = presigned ? lib.uploadPresigned : lib.upload;
+    const res = await send(`${folderFor(file.type)}/${unique}`, file, {
       access: "public",
       handleUploadUrl: API("upload"),
       headers: { "X-Requested-With": "rem-admin" },

@@ -4,12 +4,13 @@
 import { handler, send, readJson, methodNotAllowed } from "./_lib/http.js";
 import { isAdmin, verifyPassword, createSession, clearSession, tooManyAttempts, recordFailure, clearFailures } from "./_lib/auth.js";
 import { storeMode } from "./_lib/store.js";
-import { mediaMode, storageSettingNames } from "./_lib/media.js";
+import { mediaMode, blobAuth, storageSettingNames } from "./_lib/media.js";
 
 export default handler(async (req, res) => {
   const setup = {
     storeMode,
     mediaMode,
+    blobAuth,
     passwordSet: !!process.env.ADMIN_PASSWORD || storeMode === "local",
   };
 

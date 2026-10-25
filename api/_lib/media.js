@@ -14,7 +14,19 @@ function findBlobToken() {
   return "";
 }
 export const blobToken = findBlobToken();
-export const mediaMode = blobToken ? "blob" : process.env.VERCEL ? "none" : "local";
+
+// Newer Vercel Blob connections add only BLOB_STORE_ID (no read-write token) and let the
+// function sign in with Vercel's built-in identity (OIDC). Both setups are supported.
+export const blobStoreId = process.env.BLOB_STORE_ID || "";
+export const blobAuth = blobToken ? "token" : process.env.VERCEL && blobStoreId ? "oidc" : "";
+export const mediaMode = blobAuth ? "blob" : process.env.VERCEL ? "none" : "local";
+
+// Credentials for Blob calls. With OIDC, Vercel sends the identity on each request.
+export function blobCreds(req) {
+  if (blobAuth === "token") return { token: blobToken };
+  const oidcToken = req?.headers?.["x-vercel-oidc-token"] || process.env.VERCEL_OIDC_TOKEN;
+  return { ...(oidcToken ? { oidcToken } : {}), storeId: blobStoreId };
+}
 
 // Names (never values) of storage-related settings the server can see — shown in the admin to help setup.
 export const storageSettingNames = () =>
@@ -40,13 +52,13 @@ export function folderFor(type = "") {
   return "files";
 }
 
-export async function listMedia() {
+export async function listMedia(req) {
   if (mediaMode === "blob") {
     const { list } = await import("@vercel/blob");
     const out = [];
     let cursor;
     do {
-      const page = await list({ cursor, limit: 1000, token: blobToken });
+      const page = await list({ cursor, limit: 1000, ...blobCreds(req) });
       out.push(...page.blobs.map((b) => ({ url: b.url, pathname: b.pathname, size: b.size, uploadedAt: b.uploadedAt })));
       cursor = page.hasMore ? page.cursor : undefined;
     } while (cursor);
@@ -73,10 +85,10 @@ export async function listMedia() {
   return [];
 }
 
-export async function deleteMedia(url) {
+export async function deleteMedia(url, req) {
   if (mediaMode === "blob") {
     const { del } = await import("@vercel/blob");
-    await del(url, { token: blobToken });
+    await del(url, blobCreds(req));
     return;
   }
   if (mediaMode === "local") {

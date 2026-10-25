@@ -8,14 +8,14 @@ export default handler(async (req, res) => {
   if (!(await requireAdmin(req, res))) return;
 
   if (req.method === "GET") {
-    const files = (await listMedia()).sort((a, b) => (a.uploadedAt < b.uploadedAt ? 1 : -1));
+    const files = (await listMedia(req)).sort((a, b) => (a.uploadedAt < b.uploadedAt ? 1 : -1));
     return send(res, 200, { mode: mediaMode, files });
   }
 
   if (req.method === "DELETE") {
     const url = query(req).get("url");
     if (!url) return send(res, 400, { error: "Missing file." });
-    await deleteMedia(url);
+    await deleteMedia(url, req);
     return send(res, 200, { ok: true });
   }
 
