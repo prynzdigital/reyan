@@ -1,0 +1,6 @@
+# Files Vercel should not upload or serve
+dev-server.mjs
+README.md
+.data
+uploads
+.claude

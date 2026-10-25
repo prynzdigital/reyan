@@ -16,9 +16,20 @@ const TYPES = {
 };
 const BLOCKED = /^\/(\.data|node_modules|\.git|api\/_lib)(\/|$)/;
 
+// Apply the same response headers as vercel.json, so security rules can be tested locally.
+let HEADER_RULES = [];
+try {
+  HEADER_RULES = JSON.parse(await fs.readFile(path.join(ROOT, "vercel.json"), "utf8")).headers
+    .map((r) => ({ re: new RegExp(`^${r.source}$`), headers: r.headers }));
+} catch { /* no vercel.json */ }
+function applyHeaders(res, pathname) {
+  for (const rule of HEADER_RULES) if (rule.re.test(pathname)) rule.headers.forEach((h) => res.setHeader(h.key, h.value));
+}
+
 http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://localhost:${PORT}`);
   let p = decodeURIComponent(url.pathname);
+  applyHeaders(res, p);
 
   if (p.startsWith("/api/")) {
     const name = p.slice(5).replace(/\/$/, "");
