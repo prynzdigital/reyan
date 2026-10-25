@@ -48,8 +48,11 @@
   });
 
   // Social links inside the sheet mirror the contact section
-  const socials = $("#socials");
-  if (socials) $("#sheet-socials").innerHTML = socials.innerHTML;
+  // Filled once the site content has loaded (it may come from the admin).
+  document.addEventListener("site:ready", () => {
+    const socials = $("#socials");
+    if (socials) $("#sheet-socials").innerHTML = socials.innerHTML;
+  });
 
   /* ---------- Tab bar: highlight the current section ---------- */
   const TAB_FOR = { home: "home", live: "live", podcast: "podcast", events: "events" };
@@ -148,7 +151,7 @@
     if (mobile && !store.get("installDismissed")) setTimeout(() => { if (!installAsked) banner.hidden = false; }, 3000);
   }
   window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); deferred = e; });
-  window.addEventListener("appinstalled", () => { banner.hidden = true; tile.hidden = true; closeGuide(); });
+  window.addEventListener("appinstalled", () => { banner.hidden = true; tile.hidden = true; closeGuide(); window.REMtrack?.("install"); });
   installBtn.addEventListener("click", install);
   tile.addEventListener("click", () => { closeSheet(); setTimeout(install, 200); });
   $("#install-close").addEventListener("click", () => { banner.hidden = true; store.set("installDismissed", "1"); });
@@ -175,10 +178,10 @@
      Installed apps stay open in the background, so check for a newer version of the
      site whenever the app is reopened (and every few minutes while open), then reload. */
   let swReg = null;
-  const WATCHED = ["./", "site-data.js", "script.js", "app.js", "styles.css", "mobile.css"];
+  const WATCHED = ["./", "api/content", "site-data.js", "script.js", "app.js", "styles.css", "mobile.css"];
   const fingerprint = () => Promise.all(WATCHED.map((u) =>
     fetch(u, { method: "HEAD", cache: "no-store" })
-      .then((r) => r.headers.get("etag") || r.headers.get("last-modified") || "")
+      .then((r) => (r.ok ? r.headers.get("etag") || r.headers.get("last-modified") || "" : "-"))
       .catch(() => null)
   )).then((tags) => (tags.includes(null) ? null : tags.join("|")));
 

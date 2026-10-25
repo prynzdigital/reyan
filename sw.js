@@ -33,6 +33,9 @@ self.addEventListener("fetch", (e) => {
   const url = new URL(req.url);
   // Only handle our own files; YouTube, fonts, audio etc. go straight to the network.
   if (req.method !== "GET" || url.origin !== self.location.origin) return;
+  // The admin and its private data always come fresh from the network.
+  if (/\/admin(\/|$)/.test(url.pathname)) return;
+  if (url.pathname.includes("/api/") && !url.pathname.endsWith("/api/content")) return;
   // Big downloads (PDF books, audio) go straight to the network and are not stored offline.
   if (/\.(pdf|mp3|m4a|wav|zip)$/i.test(url.pathname)) return;
 

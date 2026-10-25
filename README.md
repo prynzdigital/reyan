@@ -1,52 +1,71 @@
 # Richard Engmann Ministries — Website
 
-A clean, black-and-white website (with gold accents) for Richard Engmann's preaching ministry: biography, resources (books, School of Ministry, meetings, podcast), new book release, partnership and giving, live YouTube services, popular videos, the Faith Café Podcast, travel schedule, invitations and contact.
+A clean, black-and-white website (with gold accents) for Richard Engmann's preaching ministry, with an installable phone app and an **admin dashboard** so the site can be managed without a developer.
+
+**Website sections:** biography, resources, new book, free eBooks, partnership & giving, live YouTube, videos, the Faith Café Podcast, music, conferences & events, testimonies, invitations, contact and newsletter.
+
+---
+
+## Admin dashboard (`/admin`)
+
+Sign in at **https://your-site/admin/** with the admin password.
+
+| Area | What it does |
+|---|---|
+| **Dashboard** | Visitors, page views, most viewed sections, downloads, plays, app installs, devices, where visitors come from (anonymous statistics) |
+| **Inbox** | Every contact, prayer request, testimony, speaking invitation and newsletter sign-up from the website. Reply by email, mark read, delete, export to Excel/CSV, or turn a testimony into a website testimony in one click |
+| **Website pages** | Edit every section: Home & brand, About, Resources, Books & eBooks, Partner & give, Live & videos, Podcast, Music, Events & conferences, Testimonies, Contact & social. Add, edit, reorder and delete items; show/hide whole sections; change section titles |
+| **Media library** | Upload photos, audio (MP3), video (MP4) and PDF books (up to 500 MB each), copy links, delete |
+| **Settings** | Change password, undo the last publish, download/restore a full backup, see what's connected |
+
+Changes are kept as a draft until **Publish changes** is pressed — then they're live immediately (no rebuild needed).
+
+### One-time setup on Vercel (about 10 minutes)
+The admin needs three things connected to the Vercel project. All have free plans.
+
+1. **Database** (content, statistics, messages)
+   Vercel → your project → **Storage** → **Create** → **Upstash for Redis** (from the Marketplace) → free plan → **Connect** to this project.
+   This adds `KV_REST_API_URL` and `KV_REST_API_TOKEN` automatically.
+2. **File storage** (uploads)
+   Vercel → your project → **Storage** → **Create** → **Blob** → **Connect** to this project.
+   This adds `BLOB_READ_WRITE_TOKEN` automatically.
+3. **Admin password**
+   Vercel → your project → **Settings** → **Environment Variables** → add `ADMIN_PASSWORD` with a strong password (all environments).
+   *(Optional)* add `SESSION_SECRET` with any long random text.
+4. **Redeploy** so the new settings take effect: Vercel → **Deployments** → latest → **⋯** → **Redeploy**.
+5. Open **/admin/**, sign in, and change the password in **Settings** if you like.
+
+Until step 1 is done the website keeps working normally from `site-data.js`; only the admin is unavailable.
+
+**Good to know**
+- The first time you press Publish, the admin copies the current content into the database. From then on the admin is the source of truth (edits to `site-data.js` won't show unless you load them via Settings → Load a backup).
+- Large videos use a lot of storage and data. For long sermons, uploading to YouTube and pasting the link is best; use uploads for short clips.
+- Statistics are anonymous: a random ID per browser, no names, no IP addresses stored.
+- Forms go to the admin Inbox by default (Contact & social → *Where forms go*). If the database is ever unreachable they fall back to WhatsApp.
+
+---
 
 ## Files
-| File | What it is |
+| File / folder | What it is |
 |---|---|
-| `site-data.js` | **Edit this file** for everyday updates: tagline, biography, resource tiles, new book, partner project, service times, videos, podcast episodes, events, links, contact details |
-| `index.html` | Page layout |
-| `styles.css` | Design (colors and fonts are at the top under `:root`) |
-| `script.js` | Fills the page from `site-data.js`; live status, players, forms |
+| `index.html`, `styles.css`, `mobile.css` | Page layout and design |
+| `script.js` | Loads content (from the admin, or `site-data.js`) and fills the page; players, forms, statistics |
+| `site-data.js` | Built-in default content (used until the first publish in the admin, and as a fallback) |
+| `app.js`, `sw.js`, `manifest.webmanifest`, `icons/` | Installable phone app, offline support and automatic updates |
+| `admin/` | The admin dashboard |
+| `api/` | Server functions (Vercel): login, content, uploads, media, inbox, statistics, password |
+| `downloads/` | Optional place for PDF books shipped with the site (uploads via the admin are preferred) |
+| `dev-server.mjs` | Local test server |
 
-## Setup checklist
-Anything marked `PLACEHOLDER` in `site-data.js` is an example to replace.
-1. **Photos** — the design is built around strong photos. Put them in the `images` folder and add the file names under `photos` in `site-data.js`:
-   - `hero` — wide photo of Richard preaching (landscape, at least 1920px wide)
-   - `about` — portrait for the biography
-   - `partner` — crowd or outreach photo
-   - Each resource tile can also take an `image`, and the new book a `cover`.
-2. **YouTube live** — set `youtube.channelId` (starts with `UC…`) and `youtube.handle`.
-3. **Videos** — add each video's ID (the part after `v=` in the link) to `youtubeId` to show real thumbnails.
-4. **Podcast** — paste Spotify / Apple Podcasts links into `links`. Add an `.mp3` URL to an episode's `audio` to play it on the site.
-5. **Giving** — set `links.givingLink` to your giving page, and fill in bank & mobile money details in `index.html` (search for "add your bank").
-6. **Forms** — create a free form at [formspree.io](https://formspree.io) and paste its URL into `formEndpoint` so messages and prayer requests reach your inbox. Until then, forms open the visitor's email app.
-7. **Contact details & socials** — update `email`, `phone`, `address` and `socials`.
+## Run locally
+```bash
+npm install
+```
+```bash
+npm run dev
+```
+Then open http://localhost:5173 (website) and http://localhost:5173/admin/ (admin, local password: `admin`).
+Locally, content and uploads are stored in `.data/` and `uploads/` (both ignored by git).
 
 ## Mobile app
-On phones (screens up to 768px wide) the site switches to an app layout: a bottom tab bar (Home, Live, Sermons, Podcast, More), a "More" sheet, quick-action buttons, swipeable sermon and mission cards, and a podcast mini player docked above the tabs.
-
-It is also an installable app (PWA). Once the site is live on **https**, visitors can install it:
-- **Android / Chrome**: an "Install" banner appears, or use the browser menu → *Install app*.
-- **iPhone / Safari**: tap Share → *Add to Home Screen*.
-
-It then opens full-screen with its own icon and still loads when offline.
-
-| File | What it is |
-|---|---|
-| `mobile.css` | Phone app layout |
-| `app.js` | Tab bar, More sheet, install prompt |
-| `manifest.webmanifest` | App name, colors, icons, home-screen shortcuts |
-| `sw.js` | Offline support. Updates show up automatically; files are cached only so the app opens offline. |
-| `icons/` | App icons |
-
-## Preview locally
-```bash
-python -m http.server 5173
-```
-Then open http://localhost:5173
-
-## Publish (free options)
-- **Netlify**: drag this folder onto https://app.netlify.com/drop
-- **GitHub Pages** or **Cloudflare Pages**: upload the folder as a repository
+On phones the site switches to an app layout (bottom tabs, More sheet, swipeable cards, docked podcast player). It's installable (PWA): Android shows an **Install** banner; on iPhone use Share → **Add to Home Screen**. The installed app checks for updates when reopened and refreshes itself.

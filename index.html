@@ -165,7 +165,10 @@
           <a class="btn btn-gold btn-block" id="give-btn" data-href="givingLink" target="_blank" rel="noopener">Join now</a>
           <details class="other-ways">
             <summary>Bank transfer &amp; mobile money</summary>
-            <p>Account name: <span data-bind="ministryName">Richard Engmann Ministries</span><br />Bank: — add your bank —<br />Account no: — add your number —<br />Mobile money: — add your number —</p>
+            <p id="bank-details" class="bank-details">Account name: Richard Engmann Ministries
+Bank: — add your bank —
+Account no: — add your number —
+Mobile money: — add your number —</p>
           </details>
         </div>
       </div>
@@ -212,7 +215,7 @@
       <div class="container podcast-grid">
         <div class="podcast-copy reveal">
           <h2 class="podcast-logo"><img src="images/faith-cafe-logo.png" alt="Faith Café Podcast" width="891" height="725" /></h2>
-          <p>Real stories, honest conversations and fresh insight from the Word to help you grow. Join <span data-bind="preacherName">Richard Engmann</span> for each new episode.</p>
+          <p data-edit="text">Real stories, honest conversations and fresh insight from the Word to help you grow. Join <span data-bind="preacherName">Richard Engmann</span> for each new episode.</p>
           <div class="platforms">
             <a data-href="youtubeChannel" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm">YouTube</a>
             <a data-href="podcastTiktok" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm">TikTok</a>
@@ -287,7 +290,7 @@
     <section class="invite" id="invite">
       <div class="container invite-inner reveal">
         <h2>Invite <span data-bind="preacherName">Richard Engmann</span></h2>
-        <p>Bring the Word and the move of the Spirit to your church, conference or city.</p>
+        <p data-edit="text">Bring the Word and the move of the Spirit to your church, conference or city.</p>
         <a href="#contact" class="btn btn-dark" data-subject="Speaking invitation">Send an invitation</a>
       </div>
     </section>
@@ -298,7 +301,7 @@
         <div class="reveal">
           <p class="kicker">Contact</p>
           <h2>Get in touch</h2>
-          <p class="muted">For speaking invitations, prayer requests, partnership or media, send a message and our team will respond within two working days. Prayer requests are kept confidential.</p>
+          <p class="muted" data-edit="text">For speaking invitations, prayer requests, partnership or media, send a message and our team will respond within two working days. Prayer requests are kept confidential.</p>
           <ul class="contact-list">
             <li><span>P</span><a data-href="phoneLink" data-bind="phone">+233 54 790 4882</a></li>
             <li><span>E</span><a data-href="emailLink" data-bind="email">richardengmann@outlook.com</a></li>
@@ -308,6 +311,7 @@
         </div>
 
         <form class="form-card reveal" id="contact-form" novalidate>
+          <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="field-row">
             <label>Name<input name="name" required autocomplete="name" /></label>
             <label>Email<input name="email" type="email" required autocomplete="email" /></label>
@@ -336,6 +340,7 @@
       <div class="container newsletter-inner reveal">
         <h2>Subscribe to the REM newsletter</h2>
         <form id="newsletter-form" class="newsletter-form" novalidate>
+          <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <input type="email" name="email" placeholder="Your email address" required aria-label="Email address" />
           <button class="btn btn-gold" type="submit">Subscribe</button>
           <p class="form-status" role="status"></p>

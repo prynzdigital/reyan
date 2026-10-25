@@ -10,8 +10,27 @@ window.SITE = {
   email: "richardengmann@outlook.com",
   phone: "+233 54 790 4882",
   whatsapp: "233547904882",                       // number for WhatsApp messages, digits only with country code
-  formsTo: "whatsapp",                            // where contact/prayer forms send: "whatsapp" or "email"
+  formsTo: "inbox",                               // where forms send: "inbox" (admin), "whatsapp" or "email"
   address: "P.O. Box MC 1183, Market Circle, Takoradi",
+
+  /* ---------- Section headings & visibility ----------
+     visible: false hides a section (and its menu links). {name} = preacherName, {ministry} = ministryName. */
+  sections: {
+    about: { visible: true },
+    resources: { visible: true, kicker: "Grow in the Word", title: "Resources for your journey", text: "Whether you are new to faith or ready to go deeper, here is where to start." },
+    "new-release": { visible: true },
+    ebooks: { visible: true, kicker: "Free downloads", title: "eBooks", text: "Teaching to read on your phone, tablet or computer. Download free and share with others." },
+    partner: { visible: true },
+    live: { visible: true, kicker: "Live on YouTube", title: "Worship with us" },
+    videos: { visible: true, kicker: "Gallery", title: "Popular videos" },
+    podcast: { visible: true, text: "Real stories, honest conversations and fresh insight from the Word to help you grow. Join {name} for each new episode." },
+    music: { visible: true, kicker: "Music", title: "Worship & music", text: "Songs from {ministry}, on your favourite streaming platform." },
+    events: { visible: true, kicker: "Conferences & Schedule", title: "Upcoming events" },
+    testimonies: { visible: true, kicker: "Testimonies", title: "What God is doing", text: "Lives touched through the Word, prayer and the move of the Spirit." },
+    invite: { visible: true, title: "Invite {name}", text: "Bring the Word and the move of the Spirit to your church, conference or city." },
+    contact: { visible: true, kicker: "Contact", title: "Get in touch", text: "For speaking invitations, prayer requests, partnership or media, send a message and our team will respond within two working days. Prayer requests are kept confidential." },
+    newsletter: { visible: true, title: "Subscribe to the REM newsletter" },
+  },
 
   /* ---------- Photos ----------
      Put photos in the "images" folder and type the file name here.
@@ -97,6 +116,7 @@ window.SITE = {
     text: "Monthly partners make it possible to preach the Gospel in new places, train leaders and care for communities in need. Partners receive a monthly ministry report, prayer letters and invitations to partner gatherings.",
     project: { title: "Village Outreach & Bible Distribution", raised: 18450, goal: 30000 },  // PLACEHOLDER figures
     currency: "$",
+    bankDetails: "Account name: Richard Engmann Ministries\nBank: — add your bank —\nAccount no: — add your number —\nMobile money: — add your number —",
   },
 
   giveImpact: [

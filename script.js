@@ -1,7 +1,6 @@
 /* Richard Engmann Ministries — site behaviour. Content lives in site-data.js. */
 (function () {
   "use strict";
-  const S = window.SITE || {};
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -34,6 +33,92 @@
     if (p.position) el.style.backgroundPosition = p.position;
     el.classList.add("has-photo");
   };
+
+  /* ---------- Load content ----------
+     The admin saves content to the server (api/content). If that's not available
+     (offline, or hosted without the admin), the built-in site-data.js is used. */
+  let apiOk = false;
+  async function loadContent() {
+    const base = window.SITE || {};
+    if (!location.protocol.startsWith("http")) return base;
+    try {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 3500);
+      const r = await fetch("api/content", { cache: "no-cache", signal: ctrl.signal });
+      clearTimeout(timer);
+      if (r.ok && (r.headers.get("content-type") || "").includes("json")) {
+        const j = await r.json();
+        apiOk = true;
+        if (j && j.content) return { ...base, ...j.content };
+      }
+    } catch { /* use the built-in content */ }
+    return base;
+  }
+
+  /* ---------- Anonymous visit statistics (shown in the admin dashboard) ---------- */
+  let visitorId = "";
+  try {
+    visitorId = localStorage.getItem("rem:vid") || Math.random().toString(36).slice(2) + Date.now().toString(36);
+    localStorage.setItem("rem:vid", visitorId);
+  } catch { visitorId = ""; }
+  function track(t, extra = {}) {
+    if (!apiOk) return;
+    const body = JSON.stringify({ t, ...extra });
+    try {
+      if (navigator.sendBeacon) navigator.sendBeacon("api/track", new Blob([body], { type: "text/plain" }));
+      else fetch("api/track", { method: "POST", body, keepalive: true }).catch(() => {});
+    } catch { /* never let statistics break the page */ }
+  }
+  window.REMtrack = track;
+
+  loadContent().then((content) => {
+    window.SITE = content;
+    render(content);
+    document.dispatchEvent(new Event("site:ready"));
+
+    const standalone = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+    const device = standalone ? "app" : window.matchMedia("(max-width: 768px)").matches ? "mobile" : "desktop";
+    let ref = "";
+    try { if (document.referrer && new URL(document.referrer).host !== location.host) ref = document.referrer; } catch { /* ignore */ }
+    track("pageview", { v: visitorId, d: device, r: ref });
+
+    // Which sections people actually look at (sent in one batch when they leave).
+    const seen = new Set(), sent = new Set();
+    const secObs = new IntersectionObserver((entries) => entries.forEach((en) => {
+      if (en.isIntersecting) { seen.add(en.target.id); secObs.unobserve(en.target); }
+    }), { threshold: 0.35 });
+    document.querySelectorAll("main > section[id]").forEach((s) => secObs.observe(s));
+    const flush = () => {
+      const fresh = [...seen].filter((s) => !sent.has(s));
+      if (fresh.length) { fresh.forEach((s) => sent.add(s)); track("sections", { s: fresh }); }
+    };
+    document.addEventListener("visibilitychange", () => { if (document.hidden) flush(); });
+    window.addEventListener("pagehide", flush);
+  });
+
+  function render(S) {
+
+  /* ---------- Section headings & visibility (editable in the admin) ---------- */
+  const fill = (t) => String(t ?? "").replace(/\{name\}/g, S.preacherName || "").replace(/\{ministry\}/g, S.ministryName || "");
+  Object.entries(S.sections || {}).forEach(([id, cfg]) => {
+    const sec = document.getElementById(id);
+    if (!sec || !cfg) return;
+    if (cfg.visible === false) {
+      sec.hidden = true;
+      $$(`a[href="#${id}"]`).forEach((a) => { if (!sec.contains(a)) a.hidden = true; });
+      return;
+    }
+    const parts = {
+      kicker: $("[data-edit=kicker]", sec) || $(".kicker", sec),
+      title: $("[data-edit=title]", sec) || $("h2:not(.podcast-logo)", sec),
+      text: $("[data-edit=text]", sec) || $(".section-head > p:not(.kicker)", sec),
+    };
+    Object.entries(parts).forEach(([key, el]) => {
+      if (!el || !(key in cfg)) return;
+      el.textContent = fill(cfg[key]);
+      el.hidden = !String(cfg[key] || "").trim();
+    });
+  });
 
   /* ---------- Text bindings & links ---------- */
   $$("[data-bind]").forEach((el) => { const v = S[el.dataset.bind]; if (v) el.textContent = v; });
@@ -144,6 +229,11 @@
     } else {
       $(".project").hidden = true;
     }
+    const bank = $("#bank-details");
+    if ("bankDetails" in pt) {
+      bank.textContent = pt.bankDetails || "";
+      if (!String(pt.bankDetails || "").trim()) bank.closest("details").hidden = true;
+    }
   }
 
   /* ---------- Give widget ---------- */
@@ -222,16 +312,35 @@
   });
 
   /* ---------- Popular videos ---------- */
+  // A video is either a YouTube video (youtubeId) or an uploaded file (file), shown in a pop-up player.
   $("#video-grid").innerHTML = (S.videos || []).map((v) => {
-    const url = v.youtubeId ? `https://www.youtube.com/watch?v=${encodeURIComponent(v.youtubeId)}` : channelUrl;
-    const bg = v.youtubeId ? ` style="background-image:url('https://i.ytimg.com/vi/${encodeURIComponent(v.youtubeId)}/hqdefault.jpg')"` : "";
-    return `
-      <a class="video reveal" href="${esc(url)}" target="_blank" rel="noopener">
+    const thumb = v.thumbnail || (v.youtubeId ? `https://i.ytimg.com/vi/${encodeURIComponent(v.youtubeId)}/hqdefault.jpg` : "");
+    const bg = thumb ? ` style="background-image:url('${encodeURI(thumb)}')"` : "";
+    const inner = `
         <div class="video-thumb"${bg}><span class="vt-play">${ICON.play}</span></div>
         <h3>${esc(v.title)}</h3>
-        <p>${esc(v.place || "")}</p>
-      </a>`;
+        <p>${esc(v.place || "")}</p>`;
+    if (v.file) return `<button type="button" class="video reveal" data-video="${esc(v.file)}" data-title="${esc(v.title)}">${inner}</button>`;
+    const url = v.youtubeId ? `https://www.youtube.com/watch?v=${encodeURIComponent(v.youtubeId)}` : channelUrl;
+    return `<a class="video reveal" href="${esc(url)}" target="_blank" rel="noopener" data-track-video="${esc(v.title)}">${inner}</a>`;
   }).join("");
+  document.addEventListener("click", (e) => {
+    const yt = e.target.closest("[data-track-video]");
+    if (yt) track("video", { i: yt.dataset.trackVideo });
+    const btn = e.target.closest("[data-video]");
+    if (!btn) return;
+    track("video", { i: btn.dataset.title });
+    const modal = document.createElement("div");
+    modal.className = "video-modal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-label", btn.dataset.title);
+    modal.innerHTML = `<button type="button" class="vm-close" aria-label="Close">✕</button><video controls autoplay playsinline src="${esc(btn.dataset.video)}"></video>`;
+    const close = () => { modal.remove(); document.removeEventListener("keydown", onKey); };
+    const onKey = (k) => { if (k.key === "Escape") close(); };
+    modal.addEventListener("click", (k) => { if (k.target === modal || k.target.closest(".vm-close")) close(); });
+    document.addEventListener("keydown", onKey);
+    document.body.appendChild(modal);
+  });
 
   /* ---------- Podcast ---------- */
   const eps = S.podcast || [];
@@ -261,6 +370,7 @@
     if (!ep.audio) { window.open(S.links?.spotify || channelUrl, "_blank", "noopener"); return; }
     if (i === current) { audio.paused ? audio.play() : audio.pause(); return; }
     current = i;
+    track("play", { i: ep.title });
     audio.src = ep.audio;
     $("#player-title").textContent = ep.title;
     player.hidden = false;
@@ -280,7 +390,9 @@
 
   /* ---------- Free eBooks ---------- */
   const ebooks = (S.ebooks || []).filter((b) => b && b.title && b.file);
-  const fileName = (path) => path.split("/").pop();
+  const fileName = (path) => path.split("/").pop().split("?")[0];
+  // Files stored in Vercel Blob download (instead of opening) with ?download=1.
+  const downloadHref = (url) => (/\.blob\.vercel-storage\.com\//.test(url) ? `${url}${url.includes("?") ? "&" : "?"}download=1` : url);
   $("#ebook-grid").innerHTML = ebooks.length ? ebooks.map((b) => `
     <article class="ebook reveal">
       <div class="ebook-cover${b.cover ? " has-photo" : ""}"${b.cover ? ` style="background-image:url('${encodeURI(b.cover)}')"` : ""}>
@@ -292,7 +404,7 @@
         ${b.text ? `<p>${esc(b.text)}</p>` : ""}
         ${b.details ? `<p class="ebook-details">${esc(b.details)}</p>` : ""}
         <div class="ebook-actions">
-          <a class="btn btn-dark btn-sm" href="${esc(b.file)}" download="${esc(fileName(b.file))}">Download PDF</a>
+          <a class="btn btn-dark btn-sm" href="${esc(downloadHref(b.file))}" download="${esc(fileName(b.file))}" data-track-download="${esc(b.title)}">Download PDF</a>
           <a class="btn btn-outline btn-sm" href="${esc(b.file)}" target="_blank" rel="noopener">Read online</a>
         </div>
       </div>
@@ -302,6 +414,11 @@
       <p>Subscribe to the newsletter and we'll let you know when the first one is ready to download.</p>
       <a href="#newsletter" class="btn btn-dark btn-sm">Get notified</a>
     </div>`;
+
+  document.addEventListener("click", (e) => {
+    const d = e.target.closest("[data-track-download]");
+    if (d) track("download", { i: d.dataset.trackDownload });
+  });
 
   /* ---------- Music ---------- */
   const PLATFORMS = [
@@ -316,6 +433,7 @@
       </div>
       <h3>${esc(m.title)}</h3>
       <p class="release-meta">${esc([m.type, m.year].filter(Boolean).join(" · "))}</p>
+      ${m.audio ? `<audio class="release-audio" controls preload="none" src="${esc(m.audio)}" data-title="${esc(m.title)}"></audio>` : ""}
       <div class="release-links">
         ${PLATFORMS.filter(([key, , always]) => m[key] || always).map(([key, label]) => m[key]
           ? `<a class="btn btn-outline btn-sm" href="${esc(m[key])}" target="_blank" rel="noopener">${label}</a>`
@@ -327,6 +445,10 @@
       <p>Songs will be available to stream and download on Spotify and Apple Music. Subscribe to hear first when they're out.</p>
       <a href="#newsletter" class="btn btn-dark btn-sm">Get notified</a>
     </div>`;
+
+  document.addEventListener("play", (e) => {
+    if (e.target.matches?.(".release-audio")) track("play", { i: e.target.dataset.title });
+  }, true);
 
   /* ---------- Testimonies ---------- */
   const testimonies = (S.testimonies || []).filter((t) => t && t.text);
@@ -399,7 +521,22 @@
       let viaWhatsApp = false;
       btn.disabled = true;
       try {
-        if (S.formEndpoint) {
+        let sent = false;
+        // 1) The admin inbox (when the site runs with its server)
+        if (apiOk && (!S.formsTo || S.formsTo === "inbox")) {
+          try {
+            const r = await fetch("api/messages", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ subject: title.replace(/^Website: /, ""), ...data }),
+            });
+            sent = r.ok;
+          } catch { sent = false; }
+        }
+        // 2) Otherwise: Formspree, email or WhatsApp
+        if (sent) {
+          /* delivered to the admin inbox */
+        } else if (S.formEndpoint) {
           const res = await fetch(S.formEndpoint, {
             method: "POST",
             headers: { Accept: "application/json", "Content-Type": "application/json" },
@@ -418,6 +555,7 @@
             throw new Error("no destination");
           }
         }
+        if (!viaWhatsApp && !sent) track("form", { i: data.subject || title });
         form.reset();
         status.className = "form-status ok";
         status.textContent = viaWhatsApp ? "WhatsApp is opening with your message. Tap Send to deliver it." : okMsg(data);
@@ -468,4 +606,5 @@
     });
   }, { threshold: 0.12 });
   $$(".reveal").forEach((el) => revealObs.observe(el));
+  }
 })();

@@ -1,0 +1,15 @@
+{
+  "name": "richard-engmann-ministries",
+  "private": true,
+  "type": "module",
+  "description": "Richard Engmann Ministries website with admin (CMS) on Vercel",
+  "scripts": {
+    "dev": "node dev-server.mjs"
+  },
+  "dependencies": {
+    "@vercel/blob": "2.8.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
