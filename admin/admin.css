@@ -54,7 +54,19 @@ a { color: inherit; }
 .btn-icon svg { width: 16px; height: 16px; }
 
 /* ---------- Login ---------- */
-.login { min-height: 100vh; display: grid; place-items: center; padding: 24px; background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201,162,74,.28), transparent 70%), var(--ink); }
+.login {
+  min-height: 100vh; display: grid; place-items: center; padding: 24px;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.35) 45%, rgba(0,0,0,.82) 100%),
+    url("../images/pastor-2.jpg") 30% center / cover no-repeat,
+    var(--ink);
+}
+@media (min-width: 901px) {
+  .login { justify-items: end; padding-right: clamp(24px, 4vw, 72px); }
+}
+@media (max-width: 900px) {
+  .login { place-items: end center; padding-bottom: max(28px, env(safe-area-inset-bottom)); background: linear-gradient(180deg, rgba(0,0,0,.1) 0%, rgba(0,0,0,.35) 45%, rgba(0,0,0,.8) 100%), url("../images/pastor-2.jpg") 52% 25% / cover no-repeat, var(--ink); }
+}
 .login-card { width: min(400px, 100%); background: var(--panel); border-radius: 20px; padding: 2.2rem 2rem 2rem; box-shadow: 0 40px 80px -30px rgba(0,0,0,.6); }
 .login-brand { display: flex; flex-direction: column; align-items: center; gap: .6rem; margin-bottom: 1.6rem; text-align: center; }
 .login-brand .mark { width: 64px; height: 64px; border-radius: 16px; background: var(--ink); display: grid; place-items: center; }
